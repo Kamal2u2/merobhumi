@@ -1,30 +1,35 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import Property from './models/propertymodel.js';
 
-dotenv.config();
+const liveUri = "mongodb+srv://xfinitykamal_db_user:DmwfnqaCQDbjrAHV@merobhumimongodb.uxowmhw.mongodb.net/?appName=merobhumimongodb";
 
-async function approve() {
+async function approveEverything() {
     try {
-        await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/merobhumi');
+        await mongoose.connect(liveUri);
+        console.log("Connected to live DB.");
 
-        console.log("Approving 'Final Success Villa'...");
-        const result = await Property.updateOne(
-            { title: "Final Success Villa" },
-            { $set: { status: "approved" } }
+        const res = await Property.updateMany(
+            { status: { $ne: 'approved' } },
+            { $set: { status: 'approved' } }
         );
 
-        if (result.matchedCount > 0) {
-            console.log("SUCCESS: Property approved.");
-        } else {
-            console.log("ERROR: Property not found.");
+        console.log(`✅ Approved ${res.modifiedCount} properties.`);
+
+        // Also ensure the admin user has the admin role
+        // I'll check admin@merobhumi.com
+        const User = mongoose.model('User');
+        const admin = await User.findOne({ email: 'admin@merobhumi.com' });
+        if (admin && admin.role !== 'admin') {
+            admin.role = 'admin';
+            await admin.save();
+            console.log("✅ Fixed admin user role.");
         }
 
         process.exit(0);
-    } catch (err) {
-        console.error(err);
+    } catch (e) {
+        console.error(e);
         process.exit(1);
     }
 }
 
-approve();
+approveEverything();

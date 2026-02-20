@@ -146,14 +146,29 @@ const listproperty = async (req, res) => {
         const { status, owner } = req.query;
         let query = { status: 'approved' }; // Default: only show approved properties
 
-        // Admin can see all statuses or specific status
-        if (req.user?.role === 'admin' && status) {
-            query = status === 'all' ? {} : { status };
+        // If a specific status is requested (like 'pending'), verify admin role
+        if (status && status !== 'approved') {
+            if (req.user?.role === 'admin') {
+                query = status === 'all' ? {} : { status };
+            } else {
+                // Prevent non-admins from guessing statuses or seeing pending items
+                return res.status(403).json({
+                    success: false,
+                    message: "Access denied: Admin privileges required to view " + status + " properties"
+                });
+            }
         }
 
         // Filter by specific owner (e.g. "My Listings")
-        if (owner === 'me' && req.user) {
-            query = { owner: req.user._id };
+        if (owner === 'me') {
+            if (req.user) {
+                query = { owner: req.user._id };
+            } else {
+                return res.status(401).json({
+                    success: false,
+                    message: "Authentication required to view personal listings"
+                });
+            }
         }
 
         const property = await Property.find(query).sort({ createdAt: -1 });
