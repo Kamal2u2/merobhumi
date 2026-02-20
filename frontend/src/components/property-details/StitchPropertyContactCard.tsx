@@ -8,11 +8,11 @@ interface StitchPropertyContactCardProps {
 
 const StitchPropertyContactCard: React.FC<StitchPropertyContactCardProps> = ({ propertyName, phone, onContact }) => {
     return (
-        <div className="sticky top-20 font-stitch-display space-y-6">
-            <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl text-left">
-                <h4 className="text-xl font-black mb-6 text-slate-900 dark:text-white uppercase tracking-tight">Contact Agent</h4>
-                <div className="flex items-center gap-4 mb-8">
-                    <div className="size-14 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden ring-2 ring-slate-100 dark:ring-slate-800">
+        <div className="lg:sticky lg:top-20 font-stitch-display space-y-4 md:space-y-6">
+            <div className="bg-white dark:bg-slate-900 p-4 md:p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl text-left">
+                <h4 className="text-lg md:text-xl font-black mb-4 md:mb-6 text-slate-900 dark:text-white uppercase tracking-tight">Contact Owner</h4>
+                <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
+                    <div className="size-12 md:size-14 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden ring-2 ring-slate-100 dark:ring-slate-800">
                         <img
                             alt="Agent"
                             className="w-full h-full object-cover"
@@ -20,29 +20,29 @@ const StitchPropertyContactCard: React.FC<StitchPropertyContactCardProps> = ({ p
                         />
                     </div>
                     <div>
-                        <p className="font-black text-slate-900 dark:text-white uppercase text-sm tracking-wide">Merobhumi Verified</p>
-                        <p className="text-xs text-slate-500 font-medium">Official Relationship Manager</p>
+                        <p className="font-black text-slate-900 dark:text-white uppercase text-xs md:text-sm tracking-wide">Verified Owner</p>
+                        <p className="text-[10px] md:text-xs text-slate-500 font-medium whitespace-nowrap">Relationship Manager Available</p>
                     </div>
                 </div>
 
-                <div className="space-y-4">
-                    <p className="text-sm text-slate-500 font-medium leading-relaxed">
+                <div className="space-y-3 md:space-y-4">
+                    <p className="text-xs md:text-sm text-slate-500 font-medium leading-relaxed">
                         Interested in <span className="text-slate-900 dark:text-white font-bold">{propertyName}</span>?
-                        Our team is ready to help you with the best deals and property tours.
+                        Connect directly for the best deals.
                     </p>
 
                     <button
                         onClick={onContact}
-                        className="w-full bg-stitch-primary hover:bg-[#d43f11] text-white font-black py-4 rounded-lg shadow-lg shadow-stitch-primary/30 transition-all uppercase tracking-widest text-sm mt-2"
+                        className="w-full bg-stitch-primary hover:bg-[#d43f11] text-white font-black py-3.5 md:py-4 rounded-lg shadow-lg shadow-stitch-primary/30 transition-all uppercase tracking-widest text-xs md:text-sm mt-2"
                     >
-                        Contact Owner
+                        Contact via Phone
                     </button>
                     <button
                         onClick={onContact}
-                        className="w-full border-2 border-stitch-primary text-stitch-primary hover:bg-stitch-primary/5 font-black py-4 rounded-lg transition-all uppercase tracking-widest text-sm flex items-center justify-center gap-2"
+                        className="w-full border-2 border-stitch-primary text-stitch-primary hover:bg-stitch-primary/5 font-black py-3.5 md:py-4 rounded-lg transition-all uppercase tracking-widest text-xs md:text-sm flex items-center justify-center gap-2"
                     >
-                        <span className="material-symbols-outlined text-xl">chat</span>
-                        Get More Details
+                        <span className="material-symbols-outlined text-lg md:text-xl">chat</span>
+                        Chat on WhatsApp
                     </button>
                 </div>
             </div>

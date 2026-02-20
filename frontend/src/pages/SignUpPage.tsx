@@ -22,19 +22,19 @@ const SignUpPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4] flex items-center justify-center py-12 px-4">
+    <div className="min-h-screen bg-[#FAF8F4] flex items-center justify-center py-8 md:py-12 px-4 md:px-6">
       <div className="max-w-[520px] w-full">
         {/* Logo */}
         <AuthHeader />
 
         {/* Sign Up Card */}
-        <div className="bg-white border border-[#E6E0DA] rounded-2xl p-8 shadow-xl">
+        <div className="bg-white border border-[#E6E0DA] rounded-2xl p-6 md:p-8 shadow-xl">
           {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="font-syne font-bold text-3xl text-[#221410] mb-2">
+          <div className="text-center mb-6 md:mb-8">
+            <h1 className="font-syne font-bold text-2xl md:text-3xl text-[#221410] mb-2">
               Create Account
             </h1>
-            <p className="font-manrope font-extralight text-sm text-[#4B5563]">
+            <p className="font-manrope font-extralight text-xs md:text-sm text-[#4B5563]">
               Join Merobhumi and find your dream home
             </p>
           </div>

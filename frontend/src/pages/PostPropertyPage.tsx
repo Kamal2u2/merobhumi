@@ -219,28 +219,28 @@ export default function PostPropertyPage() {
         <PageTransition className="min-h-screen bg-stitch-bg-light dark:bg-stitch-bg-dark font-stitch-display">
             <Navbar />
 
-            <div className="pt-32 pb-20 px-4">
+            <div className="pt-24 md:pt-32 pb-20 px-4">
                 <div className="max-w-4xl mx-auto">
                     {/* Header */}
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tight">
-                            Sell or Rent Your Property
+                    <div className="text-center mb-8 md:mb-12">
+                        <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-3 md:mb-4 uppercase tracking-tight">
+                            Post Your Property
                         </h1>
-                        <p className="text-slate-500 font-medium text-lg">
-                            Reach thousands of potential buyers across Nepal.
+                        <p className="text-slate-500 font-medium text-sm md:text-lg">
+                            Reach thousands of active buyers across Nepal.
                         </p>
                     </div>
 
                     {/* Stepper */}
-                    <div className="flex justify-between mb-12 relative">
+                    <div className="flex justify-between mb-8 md:mb-12 relative px-2">
                         <div className="absolute top-1/2 left-0 w-full h-0.5 bg-[#E6D5C3] -translate-y-1/2 z-0" />
                         {steps.map((step) => (
                             <div key={step.id} className="relative z-10 flex flex-col items-center">
-                                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${currentStep >= step.id ? 'bg-stitch-primary text-white shadow-lg shadow-stitch-primary/30' : 'bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400'
+                                <div className={`w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${currentStep >= step.id ? 'bg-stitch-primary text-white shadow-lg shadow-stitch-primary/30' : 'bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400'
                                     }`}>
-                                    <step.icon size={20} />
+                                    <step.icon size={18} className="md:w-5 md:h-5" />
                                 </div>
-                                <span className={`mt-2 text-[10px] font-black uppercase tracking-widest ${currentStep >= step.id ? 'text-stitch-primary' : 'text-slate-400'
+                                <span className={`mt-2 text-[8px] md:text-[10px] font-black uppercase tracking-widest ${currentStep >= step.id ? 'text-stitch-primary' : 'text-slate-400'
                                     }`}>
                                     {step.title}
                                 </span>
@@ -256,15 +256,15 @@ export default function PostPropertyPage() {
                                     key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
                                     className="p-8 md:p-12"
                                 >
-                                    <h2 className="text-2xl font-bold text-[#1C1B1A] mb-8">What are you listing?</h2>
+                                    <h2 className="text-xl md:text-2xl font-bold text-[#1C1B1A] mb-8">What are you listing?</h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div className="space-y-4">
                                             <label className="block text-sm font-bold text-[#1C1B1A] uppercase tracking-wider">Property Type</label>
-                                            <div className="grid grid-cols-2 gap-3">
+                                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-3">
                                                 {PROPERTY_TYPES.map(type => (
                                                     <button
                                                         key={type} onClick={() => setFormData({ ...formData, type })}
-                                                        className={`p-4 rounded-xl border-2 transition-all font-black text-xs uppercase tracking-widest ${formData.type === type ? 'border-stitch-primary bg-stitch-primary/5 text-stitch-primary shadow-sm' : 'border-slate-200 dark:border-slate-700 text-slate-500 hover:border-stitch-primary/50'
+                                                        className={`p-3 md:p-4 rounded-xl border-2 transition-all font-black text-[10px] md:text-xs uppercase tracking-widest ${formData.type === type ? 'border-stitch-primary bg-stitch-primary/5 text-stitch-primary shadow-sm' : 'border-slate-200 dark:border-slate-700 text-slate-500 hover:border-stitch-primary/50'
                                                             }`}
                                                     >
                                                         {type}
@@ -278,7 +278,7 @@ export default function PostPropertyPage() {
                                                 {AVAILABILITY_TYPES.map(type => (
                                                     <button
                                                         key={type} onClick={() => setFormData({ ...formData, availability: type })}
-                                                        className={`p-4 rounded-xl border-2 transition-all font-black text-xs uppercase tracking-widest ${formData.availability === type ? 'border-stitch-primary bg-stitch-primary/5 text-stitch-primary shadow-sm' : 'border-slate-200 dark:border-slate-700 text-slate-500 hover:border-stitch-primary/50'
+                                                        className={`p-3 md:p-4 rounded-xl border-2 transition-all font-black text-[10px] md:text-xs uppercase tracking-widest ${formData.availability === type ? 'border-stitch-primary bg-stitch-primary/5 text-stitch-primary shadow-sm' : 'border-slate-200 dark:border-slate-700 text-slate-500 hover:border-stitch-primary/50'
                                                             }`}
                                                     >
                                                         {type === 'sale' ? 'Sell' : type}
@@ -295,23 +295,23 @@ export default function PostPropertyPage() {
                                     key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
                                     className="p-8 md:p-12 space-y-6"
                                 >
-                                    <h2 className="text-2xl font-bold text-[#1C1B1A] mb-4">Property Details</h2>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <h2 className="text-xl md:text-2xl font-bold text-[#1C1B1A] mb-4">Property Details</h2>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                         <div className="space-y-2">
                                             <label className="text-sm font-bold text-[#1C1B1A]">Property Title</label>
                                             <input
                                                 name="title" value={formData.title} onChange={handleInputChange}
-                                                className="w-full p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none focus:border-[#D4755B]"
+                                                className="w-full p-3.5 md:p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none focus:border-[#D4755B] text-sm md:text-base"
                                                 placeholder="e.g. Modern Villa in Baneshwor"
                                             />
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-widest">Price (NPR)</label>
+                                            <label className="text-[10px] md:text-xs font-black text-slate-900 dark:text-white uppercase tracking-widest">Price (NPR)</label>
                                             <div className="relative">
                                                 <Banknote className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                                                 <input
                                                     name="price" value={formData.price} onChange={handleInputChange} type="number"
-                                                    className="w-full p-4 pl-12 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none focus:border-[#D4755B]"
+                                                    className="w-full p-3.5 md:p-4 pl-12 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none focus:border-[#D4755B] text-sm md:text-base"
                                                     placeholder="50,000,000"
                                                 />
                                             </div>
@@ -320,7 +320,7 @@ export default function PostPropertyPage() {
                                             <label className="text-sm font-bold text-[#1C1B1A]">Location</label>
                                             <input
                                                 name="location" value={formData.location} onChange={handleInputChange}
-                                                className="w-full p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none focus:border-[#D4755B] mb-2"
+                                                className="w-full p-3.5 md:p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none focus:border-[#D4755B] mb-2 text-sm md:text-base"
                                                 placeholder="e.g. Kathmandu, Nepal"
                                             />
                                             <PropertyMapSelector
@@ -334,24 +334,24 @@ export default function PostPropertyPage() {
                                                 <Smartphone className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9CA3AF]" size={18} />
                                                 <input
                                                     name="phone" value={formData.phone} onChange={handleInputChange}
-                                                    className="w-full p-4 pl-12 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none focus:border-[#D4755B]"
+                                                    className="w-full p-3.5 md:p-4 pl-12 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none focus:border-[#D4755B] text-sm md:text-base"
                                                     placeholder="98XXXXXXXX"
                                                 />
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="grid grid-cols-3 gap-4">
+                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                         <div className="space-y-2">
-                                            <label className="text-xs font-bold text-[#1C1B1A]">Beds</label>
-                                            <input name="beds" value={formData.beds} onChange={handleInputChange} type="number" className="w-full p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none" placeholder="3" />
+                                            <label className="text-[10px] md:text-xs font-bold text-[#1C1B1A] uppercase tracking-wider">Beds</label>
+                                            <input name="beds" value={formData.beds} onChange={handleInputChange} type="number" className="w-full p-3.5 md:p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none text-sm" placeholder="3" />
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-xs font-bold text-[#1C1B1A]">Baths</label>
-                                            <input name="baths" value={formData.baths} onChange={handleInputChange} type="number" className="w-full p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none" placeholder="2" />
+                                            <label className="text-[10px] md:text-xs font-bold text-[#1C1B1A] uppercase tracking-wider">Baths</label>
+                                            <input name="baths" value={formData.baths} onChange={handleInputChange} type="number" className="w-full p-3.5 md:p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none text-sm" placeholder="2" />
                                         </div>
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold text-[#1C1B1A]">Sqft</label>
-                                            <input name="sqft" value={formData.sqft} onChange={handleInputChange} type="number" className="w-full p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none" placeholder="1200" />
+                                        <div className="space-y-2 col-span-2 md:col-span-1">
+                                            <label className="text-[10px] md:text-xs font-bold text-[#1C1B1A] uppercase tracking-wider">Sqft</label>
+                                            <input name="sqft" value={formData.sqft} onChange={handleInputChange} type="number" className="w-full p-3.5 md:p-4 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none text-sm" placeholder="1200" />
                                         </div>
                                     </div>
                                 </motion.div>
@@ -362,8 +362,8 @@ export default function PostPropertyPage() {
                                     key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
                                     className="p-8 md:p-12 space-y-6"
                                 >
-                                    <h2 className="text-2xl font-bold text-[#1C1B1A] mb-4">Upload Photos</h2>
-                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <h2 className="text-xl md:text-2xl font-bold text-[#1C1B1A] mb-4">Upload Photos</h2>
+                                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                                         {previewUrls.map((url, idx) => (
                                             <div key={idx} className="relative aspect-square rounded-2xl overflow-hidden border border-[#E6D5C3]">
                                                 <img src={url} className="w-full h-full object-cover" alt="Preview" />
@@ -377,8 +377,8 @@ export default function PostPropertyPage() {
                                         ))}
                                         {previewUrls.length < 4 && (
                                             <label className="aspect-square flex flex-col items-center justify-center border-2 border-dashed border-[#E6D5C3] rounded-2xl bg-[#FAF8F4] cursor-pointer hover:border-[#D4755B] transition-all">
-                                                <Upload className="text-[#9CA3AF] mb-2" size={24} />
-                                                <span className="text-xs font-bold text-[#9CA3AF]">Add Photo</span>
+                                                <Upload className="text-[#9CA3AF] mb-1" size={20} />
+                                                <span className="text-[10px] md:text-xs font-bold text-[#9CA3AF]">Add Photo</span>
                                                 <input type="file" multiple className="hidden" onChange={handleImageChange} accept="image/*" />
                                             </label>
                                         )}
@@ -440,30 +440,36 @@ export default function PostPropertyPage() {
                         </AnimatePresence>
 
                         {/* Footer Buttons */}
-                        <div className="p-8 bg-[#FAF8F4] border-t border-[#E6D5C3] flex justify-between gap-4">
+                        <div className="p-6 md:p-8 bg-[#FAF8F4] border-t border-[#E6D5C3] flex flex-row justify-between gap-3 md:gap-4">
                             <button
                                 onClick={prevStep} disabled={currentStep === 1 || loading}
-                                className="flex items-center gap-2 px-8 py-3 bg-white border border-[#E6D5C3] text-[#1C1B1A] rounded-xl font-bold hover:bg-[#F5F1E8] transition-all disabled:opacity-50"
+                                className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 bg-white border border-[#E6D5C3] text-[#1C1B1A] rounded-xl font-bold hover:bg-[#F5F1E8] transition-all disabled:opacity-50 text-sm md:text-base flex-1 md:flex-none"
                             >
-                                <ChevronLeft size={20} />
-                                Back
+                                <ChevronLeft size={18} className="md:w-5 md:h-5" />
+                                <span className="hidden sm:inline">Back</span>
+                                <span className="sm:hidden">Prev</span>
                             </button>
 
                             {currentStep < 4 ? (
                                 <button
                                     onClick={nextStep}
-                                    className="flex items-center gap-2 px-10 py-3 bg-[#1C1B1A] text-white rounded-xl font-bold hover:bg-[#D4755B] transition-all shadow-lg overflow-hidden"
+                                    className="flex items-center justify-center gap-2 px-8 md:px-10 py-3 bg-[#1C1B1A] text-white rounded-xl font-bold hover:bg-[#D4755B] transition-all shadow-lg overflow-hidden text-sm md:text-base flex-1 md:flex-none"
                                 >
-                                    Next Step
-                                    <ChevronRight size={20} />
+                                    <span>Next</span>
+                                    <ChevronRight size={18} className="md:w-5 md:h-5" />
                                 </button>
                             ) : (
                                 <button
                                     onClick={handleInitialSubmit} disabled={loading}
-                                    className="flex items-center gap-2 px-10 py-3 bg-stitch-primary text-white rounded-xl font-black uppercase text-xs tracking-widest hover:bg-[#C05E44] transition-all shadow-lg shadow-stitch-primary/20 disabled:opacity-50"
+                                    className="flex items-center justify-center gap-2 px-6 md:px-10 py-3 bg-stitch-primary text-white rounded-xl font-black uppercase text-[10px] md:text-xs tracking-widest hover:bg-[#C05E44] transition-all shadow-lg shadow-stitch-primary/20 disabled:opacity-50 flex-1 md:flex-none"
                                 >
-                                    {loading ? 'Submitting...' : 'Submit Property'}
-                                    <CheckCircle2 size={20} />
+                                    {loading ? '...' : (
+                                        <>
+                                            <span className="hidden sm:inline">Submit Property</span>
+                                            <span className="sm:hidden">Submit</span>
+                                        </>
+                                    )}
+                                    <CheckCircle2 size={18} className="md:w-5 md:h-5" />
                                 </button>
                             )}
                         </div>

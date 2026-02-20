@@ -50,10 +50,10 @@ const StitchProfileHeader: React.FC<StitchProfileHeaderProps> = ({ user, onEdit 
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col gap-2 w-full md:w-auto">
+                <div className="flex flex-col gap-3 w-full md:w-auto mt-4 md:mt-0">
                     <button
                         onClick={onEdit}
-                        className="bg-stitch-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm shadow-md hover:bg-[#d43f11] transition-all flex items-center justify-center gap-2"
+                        className="bg-stitch-primary text-white px-6 py-3 md:py-2.5 rounded-xl md:rounded-lg font-bold text-xs md:text-sm shadow-md hover:bg-[#d43f11] transition-all flex items-center justify-center gap-2 w-full md:w-auto"
                     >
                         <span className="material-symbols-outlined text-lg">edit</span> Edit Profile
                     </button>
@@ -62,7 +62,7 @@ const StitchProfileHeader: React.FC<StitchProfileHeaderProps> = ({ user, onEdit 
                             navigator.clipboard.writeText(window.location.href);
                             alert('Profile link copied to clipboard!');
                         }}
-                        className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2"
+                        className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-6 py-3 md:py-2.5 rounded-xl md:rounded-lg font-bold text-xs md:text-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2 w-full md:w-auto"
                     >
                         <span className="material-symbols-outlined text-lg">share</span> Share Profile
                     </button>

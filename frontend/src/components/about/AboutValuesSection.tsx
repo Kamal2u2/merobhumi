@@ -21,14 +21,14 @@ const AboutValuesSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#F8F6F6] py-24">
-      <div className="max-w-[1280px] mx-auto px-8">
+    <section className="bg-[#F8F6F6] py-16 md:py-24">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <div className="font-space-mono text-xs text-[#D4755B] uppercase tracking-[1.2px] mb-4">
             Our Ethos
           </div>
-          <h2 className="font-syne text-4xl text-[#221410]">
+          <h2 className="font-syne text-3xl md:text-4xl text-[#221410]">
             Driven by Purpose
           </h2>
         </div>
@@ -36,7 +36,7 @@ const AboutValuesSection: React.FC = () => {
         {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {values.map((value, index) => (
-            <div 
+            <div
               key={index}
               className="bg-white border border-[#E6E0DA] rounded-xl p-8 text-center hover:shadow-lg transition-shadow"
             >

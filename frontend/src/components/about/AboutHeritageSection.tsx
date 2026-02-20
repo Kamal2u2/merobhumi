@@ -10,10 +10,10 @@ const AboutHeritageSection: React.FC = () => {
           {/* Left - Image with Border */}
           <div className="relative">
             {/* Inner border box */}
-            <div className="border-2 border-[rgba(236,70,19,0.2)] rounded-xl p-4">
+            <div className="border-2 border-[rgba(236,70,19,0.2)] rounded-xl p-3 md:p-4">
               {/* Image container with overlay */}
-              <div className="relative h-[735px] bg-[rgba(242,239,233,0.3)] border border-[rgba(230,224,218,0.5)] rounded-lg overflow-hidden">
-                <div className="absolute inset-4">
+              <div className="relative h-[400px] md:h-[735px] bg-[rgba(242,239,233,0.3)] border border-[rgba(230,224,218,0.5)] rounded-lg overflow-hidden">
+                <div className="absolute inset-2 md:inset-4">
                   <div className="relative h-full w-full overflow-hidden">
                     <img
                       src={heritageImage}
@@ -38,10 +38,10 @@ const AboutHeritageSection: React.FC = () => {
 
             {/* Headline */}
             <h2 className="mb-6">
-              <span className="font-syne text-[40px] leading-[50px] text-[#221410] block font-semibold">
+              <span className="font-syne text-3xl md:text-[40px] leading-tight md:leading-[50px] text-[#221410] block font-semibold">
                 Redefining the Real Estate Landscape with
               </span>
-              <span className="font-fraunces italic text-[40px] leading-[50px] text-[#D4755B] block">
+              <span className="font-fraunces italic text-3xl md:text-[40px] leading-tight md:leading-[50px] text-[#D4755B] block">
                 Better Property Discovery
               </span>
             </h2>

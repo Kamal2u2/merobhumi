@@ -35,13 +35,13 @@ const ForgotPasswordPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4] flex items-center justify-center py-12 px-4">
+    <div className="min-h-screen bg-[#FAF8F4] flex items-center justify-center py-8 md:py-12 px-4 md:px-6">
       <div className="max-w-[480px] w-full">
         {/* Logo */}
         <AuthHeader />
 
         {/* Card */}
-        <div className="bg-white border border-[#E6E0DA] rounded-2xl p-8 shadow-xl">
+        <div className="bg-white border border-[#E6E0DA] rounded-2xl p-6 md:p-8 shadow-xl">
           {isSuccess ? (
             /* Success State */
             <div className="text-center py-4">
@@ -81,14 +81,14 @@ const ForgotPasswordPage: React.FC = () => {
           ) : (
             /* Form State */
             <>
-              <div className="text-center mb-8">
-                <div className="w-14 h-14 bg-[#FFF7ED] rounded-full flex items-center justify-center mx-auto mb-5">
-                  <Mail className="w-7 h-7 text-[#D4755B]" />
+              <div className="text-center mb-6 md:mb-8">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-[#FFF7ED] rounded-full flex items-center justify-center mx-auto mb-4 md:mb-5">
+                  <Mail className="w-6 h-6 md:w-7 md:h-7 text-[#D4755B]" />
                 </div>
-                <h1 className="font-syne font-bold text-3xl text-[#221410] mb-2">
+                <h1 className="font-syne font-bold text-2xl md:text-3xl text-[#221410] mb-2">
                   Forgot Password?
                 </h1>
-                <p className="font-manrope font-extralight text-sm text-[#4B5563]">
+                <p className="font-manrope font-extralight text-xs md:text-sm text-[#4B5563]">
                   No worries! Enter your email and we'll send you a reset link.
                 </p>
               </div>

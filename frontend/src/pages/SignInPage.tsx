@@ -24,19 +24,19 @@ const SignInPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4] flex items-center justify-center py-12 px-4">
+    <div className="min-h-screen bg-[#FAF8F4] flex items-center justify-center py-8 md:py-12 px-4 md:px-6">
       <div className="max-w-[480px] w-full">
         {/* Logo */}
         <AuthHeader />
 
         {/* Sign In Card */}
-        <div className="bg-white border border-[#E6E0DA] rounded-2xl p-8 shadow-xl">
+        <div className="bg-white border border-[#E6E0DA] rounded-2xl p-6 md:p-8 shadow-xl">
           {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="font-syne font-bold text-3xl text-[#221410] mb-2">
+          <div className="text-center mb-6 md:mb-8">
+            <h1 className="font-syne font-bold text-2xl md:text-3xl text-[#221410] mb-2">
               Welcome Back
             </h1>
-            <p className="font-manrope font-extralight text-sm text-[#4B5563]">
+            <p className="font-manrope font-extralight text-xs md:text-sm text-[#4B5563]">
               Sign in to access your account
             </p>
           </div>
@@ -68,7 +68,7 @@ const SignInPage: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-[#F1F5F9] text-center">
             <a
               href="http://localhost:5174/login"
-              className="font-manrope text-xs text-[#94A3B8] hover:text-[#D4755B] transition-colors uppercase tracking-widest flex items-center justify-center gap-2"
+              className="font-manrope text-[10px] md:text-xs text-[#94A3B8] hover:text-[#D4755B] transition-colors uppercase tracking-widest flex items-center justify-center gap-2"
             >
               <span className="material-icons text-sm">admin_panel_settings</span>
               Admin Portal

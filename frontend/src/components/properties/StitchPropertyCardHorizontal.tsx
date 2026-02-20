@@ -11,13 +11,13 @@ const StitchPropertyCardHorizontal: React.FC<StitchPropertyCardHorizontalProps> 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const formatPrice = (price: number) => {
-        if (price >= 10000000) return `Rs. ${(price / 10000000).toFixed(2)} Cr`;
-        if (price >= 100000) return `Rs. ${(price / 100000).toFixed(2)} L`;
+        if (price >= 10000000) return `Rs. ${(price / 10000000).toFixed(1)} Cr`;
+        if (price >= 100000) return `Rs. ${(price / 100000).toFixed(1)} L`;
         return `Rs. ${price.toLocaleString()}`;
     };
 
     return (
-        <div className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row h-full md:h-72 font-stitch-display animate-in fade-in slide-in-from-bottom-2 duration-500">
+        <div className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row font-stitch-display animate-in fade-in slide-in-from-bottom-2 duration-500">
             {/* Modal */}
             <StitchContactModal
                 isOpen={isModalOpen}
@@ -27,22 +27,22 @@ const StitchPropertyCardHorizontal: React.FC<StitchPropertyCardHorizontalProps> 
                     title: property.title,
                     price: property.price,
                     location: property.location,
-                    ownerPhone: (property as any).phone
+                    ownerPhone: property.phone
                 }}
             />
 
-            <div className="relative w-full md:w-80 h-64 md:h-full shrink-0 group">
+            <div className="relative w-full md:w-80 h-48 sm:h-64 md:h-72 shrink-0 group overflow-hidden">
                 <img
                     alt={property.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     src={property.image && property.image.length > 0 ? property.image[0] : 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop'}
                 />
                 {property.isVerified && (
-                    <div className="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider">Verified</div>
+                    <div className="absolute top-3 left-3 bg-green-600 text-white text-[9px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider">Verified</div>
                 )}
                 <div className="absolute bottom-3 left-3 flex gap-1">
-                    <span className="bg-black/60 text-white text-[10px] p-1 rounded flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[14px]">photo_camera</span> {property.image?.length || 0}
+                    <span className="bg-black/60 text-white text-[9px] p-1 rounded flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[12px]">photo_camera</span> {property.image?.length || 0}
                     </span>
                 </div>
                 <button className="absolute top-3 right-3 text-white/80 hover:text-stitch-primary transition-colors drop-shadow-md">
@@ -50,53 +50,54 @@ const StitchPropertyCardHorizontal: React.FC<StitchPropertyCardHorizontalProps> 
                 </button>
             </div>
 
-            <div className="p-6 flex-1 flex flex-col justify-between text-left">
+            <div className="p-4 md:p-6 flex-1 flex flex-col justify-between text-left">
                 <div>
-                    <div className="flex justify-between items-start mb-2">
-                        <div>
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-4">
+                        <div className="flex-1 min-w-0">
                             <Link to={`/property/${property._id}`}>
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white hover:text-stitch-primary cursor-pointer transition-colors max-w-sm truncate">
+                                <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white hover:text-stitch-primary cursor-pointer transition-colors line-clamp-2 md:truncate">
                                     {property.title}
                                 </h3>
                             </Link>
-                            <p className="text-sm text-slate-500 flex items-center gap-1 mt-1">
-                                <span className="material-symbols-outlined text-sm text-stitch-primary">location_on</span> {property.location}
+                            <p className="text-xs md:text-sm text-slate-500 flex items-center gap-1 mt-1">
+                                <span className="material-symbols-outlined text-xs md:text-sm text-stitch-primary shrink-0">location_on</span>
+                                <span className="truncate">{property.location}</span>
                             </p>
                         </div>
-                        <div className="text-right">
-                            <p className="text-2xl font-black text-stitch-primary">{formatPrice(property.price)}</p>
+                        <div className="sm:text-right shrink-0">
+                            <p className="text-xl md:text-2xl font-black text-stitch-primary whitespace-nowrap">{formatPrice(property.price)}</p>
                             <p className="text-[10px] text-slate-500 font-medium tracking-tight">Price Negotiable</p>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-slate-100 dark:border-slate-800">
+                    <div className="grid grid-cols-3 gap-2 md:gap-4 mb-4 py-3 border-y border-slate-100 dark:border-slate-800">
                         <div>
-                            <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Area</p>
-                            <p className="text-sm font-bold">{property.sqft} sqft</p>
+                            <p className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Area</p>
+                            <p className="text-xs md:text-sm font-bold truncate">{property.sqft} sqft</p>
                         </div>
                         <div>
-                            <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Rooms</p>
-                            <p className="text-sm font-bold">{property.beds} BHK</p>
+                            <p className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Rooms</p>
+                            <p className="text-xs md:text-sm font-bold truncate">{property.beds} BHK</p>
                         </div>
                         <div>
-                            <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Status</p>
-                            <p className="text-sm font-bold">{property.availability}</p>
+                            <p className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Status</p>
+                            <p className="text-xs md:text-sm font-bold truncate">{property.availability}</p>
                         </div>
                     </div>
 
                     <div className="flex flex-wrap gap-2 mb-4 overflow-hidden h-6">
                         {property.amenities?.slice(0, 3).map((amenity, idx) => (
-                            <span key={idx} className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium whitespace-nowrap">
+                            <span key={idx} className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-0.5 rounded font-medium whitespace-nowrap">
                                 {amenity}
                             </span>
                         ))}
                     </div>
                 </div>
 
-                <div className="flex gap-3 mt-auto">
+                <div className="flex flex-col sm:flex-row gap-3 mt-4">
                     <button
                         onClick={() => setIsModalOpen(true)}
-                        className="flex-1 bg-stitch-primary hover:bg-[#d43f11] text-white py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2"
+                        className="flex-1 bg-stitch-primary hover:bg-[#d43f11] text-white py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 order-1 sm:order-none"
                     >
                         Contact Owner
                     </button>

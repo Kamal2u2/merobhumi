@@ -82,8 +82,8 @@ const PropertiesPage: React.FC = () => {
 
       {/* Localized Stitch Search Bar */}
       <section className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm sticky top-[65px] z-40">
-        <div className="max-w-[1400px] mx-auto px-4 py-3 flex flex-wrap items-center gap-3">
-          <div className="flex-1 min-w-[300px] flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg px-3 border border-slate-200 dark:border-slate-700">
+        <div className="max-w-[1400px] mx-auto px-4 py-3 flex flex-col md:flex-row items-stretch md:items-center gap-3">
+          <div className="flex-1 flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg px-3 border border-slate-200 dark:border-slate-700">
             <span className="material-symbols-outlined text-slate-400 text-xl">search</span>
             <input
               className="w-full bg-transparent border-none focus:ring-0 text-sm font-medium py-2.5"
@@ -93,11 +93,11 @@ const PropertiesPage: React.FC = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex grid grid-cols-2 md:flex items-center gap-2">
             <select
               value={budget}
               onChange={(e) => setBudget(e.target.value)}
-              className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium py-2.5 px-4 outline-none focus:border-stitch-primary cursor-pointer"
+              className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs md:text-sm font-medium py-2.5 px-3 md:px-4 outline-none focus:border-stitch-primary cursor-pointer w-full"
             >
               <option>Budget</option>
               <option>Rs. 50L - 1Cr</option>
@@ -107,20 +107,20 @@ const PropertiesPage: React.FC = () => {
             <select
               value={bhk}
               onChange={(e) => setBhk(e.target.value)}
-              className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium py-2.5 px-4 outline-none focus:border-stitch-primary cursor-pointer"
+              className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs md:text-sm font-medium py-2.5 px-3 md:px-4 outline-none focus:border-stitch-primary cursor-pointer w-full"
             >
               <option>BHK</option>
               <option>2 BHK</option>
               <option>3 BHK</option>
               <option>4+ BHK</option>
             </select>
-            <button
-              onClick={handleUpdateSearch}
-              className="bg-stitch-primary hover:bg-[#d43f11] text-white px-8 py-2.5 rounded-lg font-bold text-sm transition-all shadow-md active:scale-95"
-            >
-              Update
-            </button>
           </div>
+          <button
+            onClick={handleUpdateSearch}
+            className="bg-stitch-primary hover:bg-[#d43f11] text-white px-8 py-2.5 rounded-lg font-bold text-sm transition-all shadow-md active:scale-95 w-full md:w-auto"
+          >
+            Update
+          </button>
         </div>
       </section>
 

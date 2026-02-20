@@ -12,7 +12,7 @@ const StitchPropertyGallery: React.FC<StitchPropertyGalleryProps> = ({ images })
     ];
 
     return (
-        <section className="font-stitch-display mb-6 md:mb-10 px-0 md:px-0">
+        <section className="font-stitch-display mb-6 md:mb-10 mx-[-1rem] md:mx-0">
             {/* Desktop Grid (Hidden on Mobile) */}
             <div className="hidden md:grid grid-cols-12 gap-2 h-[450px] overflow-hidden rounded-xl">
                 <div className={`${images.length > 1 ? 'col-span-8' : 'col-span-12'} h-full relative group cursor-pointer overflow-hidden`}>
@@ -49,8 +49,8 @@ const StitchPropertyGallery: React.FC<StitchPropertyGalleryProps> = ({ images })
             </div>
 
             {/* Mobile Stack (Visible only on Mobile) */}
-            <div className="md:hidden space-y-2">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+            <div className="md:hidden">
+                <div className="relative aspect-[16/10] overflow-hidden shadow-sm">
                     <img
                         alt="Main Property Mobile"
                         className="w-full h-full object-cover"
@@ -62,10 +62,12 @@ const StitchPropertyGallery: React.FC<StitchPropertyGalleryProps> = ({ images })
                     </div>
                 </div>
                 {images.length > 1 && (
-                    <button className="w-full py-4 text-stitch-primary font-black uppercase text-xs tracking-widest border-2 border-stitch-primary/10 rounded-xl hover:bg-stitch-primary/5 transition-colors flex items-center justify-center gap-2">
-                        <span className="material-symbols-outlined text-xl">grid_view</span>
-                        View All Photos
-                    </button>
+                    <div className="px-4 mt-4">
+                        <button className="w-full py-3.5 text-stitch-primary font-black uppercase text-xs tracking-widest border-2 border-stitch-primary/10 rounded-xl hover:bg-stitch-primary/5 transition-colors flex items-center justify-center gap-2">
+                            <span className="material-symbols-outlined text-xl">grid_view</span>
+                            View All {images.length} Photos
+                        </button>
+                    </div>
                 )}
             </div>
         </section>

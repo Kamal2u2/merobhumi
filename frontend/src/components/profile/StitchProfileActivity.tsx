@@ -81,28 +81,28 @@ const StitchProfileActivity: React.FC<StitchProfileActivityProps> = ({ myListing
                                     <h4 className="text-sm font-black uppercase tracking-widest text-slate-400">Security</h4>
                                     <div className="space-y-4">
                                         <div className="space-y-1.5">
-                                            <label className="text-xs font-bold uppercase text-slate-500 ml-1">Current Password</label>
+                                            <label className="text-[10px] md:text-xs font-bold uppercase text-slate-500 ml-1">Current Password</label>
                                             <input type="password" placeholder="••••••••" className="w-full bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-800 rounded-xl py-3 px-4 text-sm focus:border-stitch-primary outline-none transition-all" />
                                         </div>
                                         <div className="space-y-1.5">
-                                            <label className="text-xs font-bold uppercase text-slate-500 ml-1">New Password</label>
+                                            <label className="text-[10px] md:text-xs font-bold uppercase text-slate-500 ml-1">New Password</label>
                                             <input type="password" placeholder="Min. 8 characters" className="w-full bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-800 rounded-xl py-3 px-4 text-sm focus:border-stitch-primary outline-none transition-all" />
                                         </div>
-                                        <button className="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all w-full md:w-auto">Update Password</button>
+                                        <button className="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-3.5 md:py-3 rounded-xl font-bold text-[10px] md:text-xs uppercase tracking-widest hover:scale-105 transition-all w-full md:w-auto">Update Password</button>
                                     </div>
                                 </div>
                                 <div className="space-y-4">
                                     <h4 className="text-sm font-black uppercase tracking-widest text-slate-400">Email Notifications</h4>
                                     <div className="space-y-3">
                                         {[
-                                            { label: 'New Property Alerts', desc: 'Get notified when a property matching your search is posted' },
-                                            { label: 'Agent Inquiries', desc: 'Get notified when an agent or owner messages you' },
-                                            { label: 'Marketing Updates', desc: 'Stay updated with Nepal\'s real estate trends' }
+                                            { label: 'New Property Alerts', desc: 'Get notified of matching properties' },
+                                            { label: 'Agent Inquiries', desc: 'Get notified of messages' },
+                                            { label: 'Marketing Updates', desc: 'Stay updated with trends' }
                                         ].map((item, idx) => (
                                             <div key={idx} className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
                                                 <div>
-                                                    <div className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-tight">{item.label}</div>
-                                                    <div className="text-xs text-slate-500 mt-0.5">{item.desc}</div>
+                                                    <div className="text-[10px] md:text-xs font-bold text-slate-900 dark:text-white uppercase tracking-tight">{item.label}</div>
+                                                    <div className="text-[10px] text-slate-500 mt-0.5">{item.desc}</div>
                                                 </div>
                                                 <div className="w-10 h-5 bg-stitch-primary rounded-full relative cursor-pointer shadow-inner">
                                                     <div className="absolute right-1 top-1 size-3 bg-white rounded-full shadow-sm"></div>
