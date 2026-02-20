@@ -64,7 +64,7 @@ const StitchContactModal: React.FC<StitchContactModalProps> = ({ isOpen, onClose
     };
 
     const handleWhatsApp = () => {
-        const message = encodeURIComponent(`Hi, I'm interested in your property "${property.title}" listed on Merobhumi. Link: ${window.location.origin}/properties/${property.id}`);
+        const message = encodeURIComponent(`Hi, I'm interested in your property "${property.title}" listed on Merobhumi. Link: ${window.location.origin}/property/${property.id}`);
         window.open(`https://wa.me/${property.ownerPhone || '9779800000000'}?text=${message}`, '_blank');
     };
 

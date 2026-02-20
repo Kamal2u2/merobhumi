@@ -65,7 +65,7 @@ const StitchOwnerSection: React.FC = () => {
                         properties.map((prop) => (
                             <div
                                 key={prop._id}
-                                onClick={() => navigate(`/properties/${prop._id}`)}
+                                onClick={() => navigate(`/property/${prop._id}`)}
                                 className="flex-none w-64 bg-white rounded-2xl p-4 text-slate-900 shadow-xl group hover:-translate-y-2 transition-all duration-300 cursor-pointer"
                             >
                                 <div className="relative overflow-hidden rounded-xl mb-3">
@@ -87,7 +87,7 @@ const StitchOwnerSection: React.FC = () => {
                                 <button
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        navigate(`/properties/${prop._id}`);
+                                        navigate(`/property/${prop._id}`);
                                     }}
                                     className="w-full py-2.5 bg-slate-100 dark:bg-slate-50 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-sm"
                                 >

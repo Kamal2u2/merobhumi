@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Property } from '../../pages/PropertiesPage';
 import StitchPropertyCardVertical from '../properties/StitchPropertyCardVertical';
 import StitchPropertyCardHorizontal from '../properties/StitchPropertyCardHorizontal';
@@ -13,6 +14,7 @@ interface StitchProfileActivityProps {
 
 const StitchProfileActivity: React.FC<StitchProfileActivityProps> = ({ myListings, receivedInquiries, sentInquiries, activeView, onDeleteListing }) => {
     const [activeTab, setActiveTab] = useState('listings');
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         if (activeView === 'Favorites') setActiveTab('saved');
@@ -213,7 +215,12 @@ const StitchProfileActivity: React.FC<StitchProfileActivityProps> = ({ myListing
                                                 'No records found for this section'}
                                     </p>
                                     {activeTab === 'listings' && activeView !== 'Property Alerts' && activeView !== 'My Reviews' && (
-                                        <button className="mt-4 bg-stitch-primary text-white px-6 py-2 rounded-lg font-bold text-sm">Post a Property</button>
+                                        <button
+                                            onClick={() => navigate('/post-property')}
+                                            className="mt-4 bg-stitch-primary text-white px-6 py-2 rounded-lg font-bold text-sm"
+                                        >
+                                            Post a Property
+                                        </button>
                                     )}
                                     {activeView === 'Property Alerts' && (
                                         <button className="mt-4 bg-stitch-primary text-white px-6 py-2 rounded-lg font-bold text-sm">Create New Alert</button>
