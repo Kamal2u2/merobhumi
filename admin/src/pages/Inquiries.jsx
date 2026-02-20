@@ -36,8 +36,8 @@ const Inquiries = () => {
         try {
             setLoading(true);
             const token = localStorage.getItem("token");
-            const response = await axios.get(`${backendurl} /api/inquiries / all`, {
-                headers: { Authorization: `Bearer ${token} ` },
+            const response = await axios.get(`${backendurl}/api/inquiries/all`, {
+                headers: { Authorization: `Bearer ${token}` },
             });
             if (response.data.success) {
                 setInquiries(response.data.inquiries);
@@ -57,7 +57,7 @@ const Inquiries = () => {
             setUpdatingId(id);
             const token = localStorage.getItem("token");
             const response = await axios.patch(
-                `${backendurl} /api/inquiries / ${id}/status`,
+                `${backendurl}/api/inquiries/${id}/status`,
                 { status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

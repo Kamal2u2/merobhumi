@@ -1,5 +1,5 @@
 import express from 'express';
-import { createInquiry, getMyLeads, getMyInquiries, getAllInquiries, updateInquiryStatus } from '../controllers/inquiryController.js';
+import { createInquiry, getMyLeads, getMyInquiries, getAllInquiries, updateInquiryStatus } from '../controller/inquiryController.js';
 import { protect, adminOnly } from '../middleware/authmiddleware.js';
 
 const inquiryRouter = express.Router();
