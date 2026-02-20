@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { propertiesAPI } from '../../services/api';
 
 const StitchOwnerSection: React.FC = () => {
     const navigate = useNavigate();
-    const miniProperties = [
-        { id: 1, type: '2 BHK Apartment', price: 'Rs. 45,000', location: 'Durbarmarg, Kathmandu', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop' },
-        { id: 2, type: '3 BHK House', price: 'Rs. 2.1 Cr', location: 'Baneshwor, Kathmandu', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2080&auto=format&fit=crop' },
-        { id: 3, type: 'Studio Flat', price: 'Rs. 25,000', location: 'Sanepa, Lalitpur', image: 'https://images.unsplash.com/photo-1600607687946-371d74fe4abd?q=80&w=2070&auto=format&fit=crop' },
-        { id: 4, type: '1 BHK Flat', price: 'Rs. 32,000', location: 'Jhamsikhel, Lalitpur', image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop' }
-    ];
+    const [properties, setProperties] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchOwnerListings = async () => {
+            try {
+                setLoading(true);
+                const { data } = await propertiesAPI.getOwnerListings();
+                if (data.success && data.property) {
+                    setProperties(data.property.slice(0, 4)); // Show top 4
+                }
+            } catch (err) {
+                console.error('Failed to fetch owner listings:', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchOwnerListings();
+    }, []);
+
+    const formatPrice = (price: number) => {
+        if (price >= 10000000) return `Rs. ${(price / 10000000).toFixed(1)} Cr`;
+        if (price >= 100000) return `Rs. ${(price / 100000).toFixed(1)} L`;
+        return `Rs. ${price.toLocaleString()}`;
+    };
+
+    if (!loading && properties.length === 0) return null; // Hide if no real owner listings
 
     return (
         <section className="font-stitch-display bg-blue-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden my-16 shadow-2xl">
@@ -29,28 +52,50 @@ const StitchOwnerSection: React.FC = () => {
                     </button>
                 </div>
 
-                <div className="mt-12 flex flex-nowrap gap-6 overflow-x-auto pb-4 hide-scrollbar">
-                    {miniProperties.map((prop) => (
-                        <div key={prop.id} className="flex-none w-64 bg-white rounded-2xl p-4 text-slate-900 shadow-xl group hover:-translate-y-2 transition-all duration-300">
-                            <div className="relative overflow-hidden rounded-xl mb-3">
-                                <img className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500" src={prop.image} alt={prop.type} />
-                                <div className="absolute top-2 left-2 bg-blue-600 text-[8px] font-black text-white px-2 py-0.5 rounded-full uppercase tracking-widest">Owner</div>
+                <div className="mt-12 flex flex-nowrap gap-6 overflow-x-auto pb-4 hide-scrollbar min-h-[250px]">
+                    {loading ? (
+                        [1, 2, 3, 4].map((n) => (
+                            <div key={n} className="flex-none w-64 bg-white/10 rounded-2xl p-4 animate-pulse">
+                                <div className="w-full h-32 bg-white/20 rounded-xl mb-3"></div>
+                                <div className="h-4 bg-white/20 rounded w-3/4 mb-2"></div>
+                                <div className="h-4 bg-white/20 rounded w-1/2"></div>
                             </div>
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-bold text-sm tracking-tight">{prop.type}</h4>
-                                <p className="text-blue-600 font-extrabold text-sm whitespace-nowrap">{prop.price}</p>
-                            </div>
-                            <p className="text-[10px] text-slate-500 font-medium flex items-center gap-1 mb-4">
-                                <span className="material-symbols-outlined text-[14px]">location_on</span> {prop.location}
-                            </p>
-                            <button
-                                onClick={() => navigate('/contact')}
-                                className="w-full py-2.5 bg-slate-100 dark:bg-slate-50 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+                        ))
+                    ) : (
+                        properties.map((prop) => (
+                            <div
+                                key={prop._id}
+                                onClick={() => navigate(`/properties/${prop._id}`)}
+                                className="flex-none w-64 bg-white rounded-2xl p-4 text-slate-900 shadow-xl group hover:-translate-y-2 transition-all duration-300 cursor-pointer"
                             >
-                                Contact Owner
-                            </button>
-                        </div>
-                    ))}
+                                <div className="relative overflow-hidden rounded-xl mb-3">
+                                    <img
+                                        className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
+                                        src={prop.image?.[0] || 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop'}
+                                        alt={prop.title}
+                                    />
+                                    <div className="absolute top-2 left-2 bg-blue-600 text-[8px] font-black text-white px-2 py-0.5 rounded-full uppercase tracking-widest">Owner</div>
+                                </div>
+                                <div className="flex justify-between items-start mb-2">
+                                    <h4 className="font-bold text-sm tracking-tight line-clamp-1">{prop.title}</h4>
+                                    <p className="text-blue-600 font-extrabold text-sm whitespace-nowrap ml-2">{formatPrice(prop.price)}</p>
+                                </div>
+                                <p className="text-[10px] text-slate-500 font-medium flex items-center gap-1 mb-4">
+                                    <span className="material-symbols-outlined text-[14px]">location_on</span>
+                                    <span className="line-clamp-1">{prop.location}</span>
+                                </p>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        navigate(`/properties/${prop._id}`);
+                                    }}
+                                    className="w-full py-2.5 bg-slate-100 dark:bg-slate-50 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+                                >
+                                    View Details
+                                </button>
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
         </section>

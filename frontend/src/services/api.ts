@@ -74,6 +74,9 @@ export const propertiesAPI = {
   getAll: (status?: string) =>
     apiClient.get(`/products/list${status ? `?status=${status}` : ''}`),
 
+  getOwnerListings: () =>
+    apiClient.get('/products/list?isOwner=true'),
+
   getMyListings: () =>
     apiClient.get('/products/list?owner=me'),
 

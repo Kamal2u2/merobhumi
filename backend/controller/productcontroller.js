@@ -143,7 +143,7 @@ const addproperty = async (req, res) => {
 
 const listproperty = async (req, res) => {
     try {
-        const { status, owner } = req.query;
+        const { status, owner, isOwner } = req.query;
         let query = { status: 'approved' }; // Default: only show approved properties
 
         // If a specific status is requested (like 'pending'), verify admin role
@@ -169,6 +169,14 @@ const listproperty = async (req, res) => {
                     message: "Authentication required to view personal listings"
                 });
             }
+        }
+
+        // Filter by owner type (Owner Listings vs Agency/Admin)
+        if (isOwner === 'true') {
+            // Find all users with role 'user'
+            const regularUsers = await User.find({ role: 'user' }).select('_id');
+            const userIds = regularUsers.map(u => u._id);
+            query.owner = { $in: userIds };
         }
 
         const property = await Property.find(query).sort({ createdAt: -1 });
