@@ -1,5 +1,4 @@
 import express from "express";
-import { Router } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
@@ -186,4 +185,33 @@ const getname = async (req, res) => {
 
 
 
-export { login, register, forgotpassword, resetpassword, adminlogin, logout, getname };
+const updateProfile = async (req, res) => {
+  try {
+    const { name, phone, location } = req.body;
+    const user = await userModel.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found", success: false });
+    }
+
+    if (name) user.name = name;
+    if (phone) user.phone = phone;
+    if (location) user.location = location;
+
+    await user.save();
+
+    return res.json({
+      success: true,
+      user: {
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        location: user.location
+      }
+    });
+  } catch (error) {
+    console.error('Update Profile Error:', error);
+    return res.status(500).json({ message: "Server error", success: false });
+  }
+};
+
+export { login, register, forgotpassword, resetpassword, adminlogin, logout, getname, updateProfile };

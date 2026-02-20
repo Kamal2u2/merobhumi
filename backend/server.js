@@ -16,6 +16,7 @@ import appointmentRouter from './routes/appointmentRoute.js';
 import adminRouter from './routes/adminRoute.js';
 import propertyRoutes from './routes/propertyRoutes.js';
 import planRoutes from './routes/planRoutes.js';
+import inquiryRoutes from './routes/inquiryRoutes.js';
 import getStatusPage from './serverweb.js';
 
 
@@ -120,6 +121,7 @@ app.use('/api/news', newsrouter);
 app.use('/api/appointments', appointmentRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/plans', planRoutes);
+app.use('/api/inquiries', inquiryRoutes);
 app.use('/api', propertyRoutes);
 
 

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MagicBricks - Property Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ed4b13",
+                        "accent-blue": "#137fec",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221510",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            @apply font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<header class="sticky-nav bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 lg:px-10 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="bg-primary text-white p-1 rounded">
+<span class="material-symbols-outlined text-2xl">domain</span>
+</div>
+<h1 class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">MagicBricks</h1>
+</div>
+<nav class="hidden xl:flex items-center gap-6">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Buy</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Rent</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Sell</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Home Loans</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex border-2 border-primary text-primary px-4 py-1.5 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-all">
+            Post Property <span class="ml-1 bg-yellow-400 text-[10px] px-1 rounded text-slate-900">FREE</span>
+</button>
+<button class="flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined">account_circle</span>
+            Login
+        </button>
+</div>
+</header>
+<section class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm sticky top-[65px] z-40">
+<div class="max-w-[1400px] mx-auto px-4 py-3 flex flex-wrap items-center gap-3">
+<div class="flex-1 min-w-[300px] flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg px-3 border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm font-medium py-2.5" placeholder="Locality, Project or Landmark" type="text" value="Powai, Mumbai"/>
+</div>
+<div class="flex items-center gap-2">
+<select class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium py-2.5 px-4 focus:ring-primary focus:border-primary">
+<option>Budget</option>
+<option>₹50 Lac - ₹1 Cr</option>
+<option>₹1 Cr - ₹2 Cr</option>
+<option>₹2 Cr +</option>
+</select>
+<select class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium py-2.5 px-4 focus:ring-primary focus:border-primary">
+<option>BHK</option>
+<option>1 BHK</option>
+<option>2 BHK</option>
+<option>3 BHK</option>
+<option>4+ BHK</option>
+</select>
+<select class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium py-2.5 px-4 focus:ring-primary focus:border-primary">
+<option>Property Type</option>
+<option>Flat</option>
+<option>House/Villa</option>
+<option>Plot</option>
+</select>
+<button class="bg-primary hover:bg-orange-700 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-all shadow-md">
+                Update
+            </button>
+</div>
+</div>
+</section>
+<main class="max-w-[1400px] mx-auto px-4 py-6 flex gap-6">
+<aside class="hidden lg:block w-72 flex-shrink-0 space-y-6">
+<div class="bg-white dark:bg-slate-900 rounded-xl p-5 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-lg">Filters</h3>
+<button class="text-primary text-xs font-bold uppercase hover:underline">Reset</button>
+</div>
+<div class="space-y-8">
+<div>
+<h4 class="font-bold text-sm mb-4">Price Range</h4>
+<div class="px-2">
+<input class="w-full accent-primary" max="100" min="0" type="range"/>
+<div class="flex justify-between mt-2 text-xs font-medium text-slate-500">
+<span>₹ 0</span>
+<span>₹ 10 Cr+</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-4">Area (sqft)</h4>
+<div class="grid grid-cols-2 gap-2">
+<input class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded text-xs p-2" placeholder="Min" type="text"/>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded text-xs p-2" placeholder="Max" type="text"/>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-4">Posted By</h4>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Owner (142)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Developer (56)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">Agent (89)</span>
+</label>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-sm mb-4">Amenities</h4>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400">Power Backup</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400">Gymnasium</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400">Swimming Pool</span>
+</label>
+<button class="text-primary text-xs font-bold mt-2">+ See More</button>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-xl font-black">287 Results | <span class="font-medium text-slate-500 text-lg">Properties for Sale in Powai</span></h2>
+<div class="flex items-center gap-2 text-sm">
+<span class="text-slate-500">Sort by:</span>
+<select class="border-none bg-transparent font-bold text-primary focus:ring-0 cursor-pointer">
+<option>Relevance</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Newest First</option>
+</select>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row h-full md:h-72">
+<div class="relative w-full md:w-80 h-64 md:h-full shrink-0 group">
+<img alt="Luxury Apartment" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf8Z5hBodqrCRtg3ePAbdd8jQ-NSbKaLnrjIBwYSBUraYmjEvx5YxNAPbZnMNOVOCFW1A_LxLSplSvBLWF6qBxOnfAf6SE0cRqSEfctfjsJdeFyvhq_gQMrA1t0-l4JtauIGe1ggG7IYXrK5j595IroH0Q3o8kbY56DwcmDnyr4RSA53cvcWZkPIZWVIq-U6aT0LdnBoMBFHbyC3heuDrUPClkrOe1C-heSuBzwV4fyxj2B9h4U2SNEuxMkGbWc2gMgYFy0-lZZw"/>
+<div class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider">Verified</div>
+<div class="absolute bottom-3 left-3 flex gap-1">
+<span class="bg-black/60 text-white text-[10px] p-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> 12
+                    </span>
+</div>
+<button class="absolute top-3 right-3 text-white/80 hover:text-primary transition-colors drop-shadow-md">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Lodha Bellagio</h3>
+<div class="text-right">
+<p class="text-2xl font-black text-primary">₹ 2.45 Cr</p>
+<p class="text-[10px] text-slate-500 font-medium">₹ 18,500/sqft</p>
+</div>
+</div>
+<p class="text-sm text-slate-500 mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span> Powai, Mumbai
+                    </p>
+<div class="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-slate-100 dark:border-slate-800">
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Area</p>
+<p class="text-sm font-bold">1,325 sqft</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Status</p>
+<p class="text-sm font-bold">Ready to Move</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Floor</p>
+<p class="text-sm font-bold">15 of 22</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium">Gated Community</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium">East Facing</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium">Reserved Parking</span>
+</div>
+</div>
+<div class="flex gap-3 mt-auto">
+<button class="flex-1 bg-primary hover:bg-orange-700 text-white py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2">
+                        Contact Owner
+                    </button>
+<button class="flex-1 border-2 border-primary text-primary hover:bg-primary/5 py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2">
+                        Express Interest
+                    </button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row h-full md:h-72">
+<div class="relative w-full md:w-80 h-64 md:h-full shrink-0 group">
+<img alt="Apartment View" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArMtLSV-trv0iB1mE_o4m1UiBdRK_T6T0wdKVXhcwJyu2uglCRSGg2sfC7rDXLV9icUoOAW43tvN71zB3ydeicDH6EUiveWutWyzSdLkyJGi8krpQ2OQssPeFMAIjkp3BhplK_4hIQM0bMry_pE221u3RpuvjS3eDLK4ZEDmIqz5qY7ANblux4ThX7DGuKF8d25CCgQZIHZloKdK5R5Z2zMsMfdZg5Phbnv9ozdVaYNEhFVYKR8Rqap4bqCyKkHDM6TYkeNB1ImQ"/>
+<div class="absolute top-3 left-3 bg-accent-blue text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider">Owner Listed</div>
+<div class="absolute bottom-3 left-3 flex gap-1">
+<span class="bg-black/60 text-white text-[10px] p-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> 8
+                    </span>
+</div>
+<button class="absolute top-3 right-3 text-white/80 hover:text-primary transition-colors drop-shadow-md">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Hiranandani Gardens</h3>
+<div class="text-right">
+<p class="text-2xl font-black text-primary">₹ 3.12 Cr</p>
+<p class="text-[10px] text-slate-500 font-medium">₹ 21,200/sqft</p>
+</div>
+</div>
+<p class="text-sm text-slate-500 mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span> Cliff Avenue, Powai
+                    </p>
+<div class="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-slate-100 dark:border-slate-800">
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Area</p>
+<p class="text-sm font-bold">1,475 sqft</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Possession</p>
+<p class="text-sm font-bold">Immediate</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Facing</p>
+<p class="text-sm font-bold">Garden Facing</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium">Power Backup</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium">Lift</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium">Park View</span>
+</div>
+</div>
+<div class="flex gap-3 mt-auto">
+<button class="flex-1 bg-primary hover:bg-orange-700 text-white py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2">
+                        Contact Owner
+                    </button>
+<button class="flex-1 border-2 border-primary text-primary hover:bg-primary/5 py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2">
+                        Express Interest
+                    </button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row h-full md:h-72">
+<div class="relative w-full md:w-80 h-64 md:h-full shrink-0 group">
+<img alt="Villa View" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnO9bPJdNIc-8yt4whpfiqR68v7RP02JHazinz-YeElb0onhwKibRsUEe6m81FU0wh3GE07cc0gOLS3B9gL1AIVaGGUq2txdlph1iePtvDJT5dsvMUQQ2rsiXLawaT4_-vWa065Pb4Is0vX_YOAblT-62q9vPPRbOTvBZrPJDsr57PcPdHnZ5A48B43ZHgBTZRrHU22-6QTGkQCNZ4C-J_wS0hZj24ZIoawy1zoQshLQaf4Q-AkIMEaUWiBXN-2Jyy8jZG5N5_9w"/>
+<div class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider">New Launch</div>
+<div class="absolute bottom-3 left-3 flex gap-1">
+<span class="bg-black/60 text-white text-[10px] p-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> 24
+                    </span>
+</div>
+<button class="absolute top-3 right-3 text-white/80 hover:text-primary transition-colors drop-shadow-md">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Lake View Residencies</h3>
+<div class="text-right">
+<p class="text-2xl font-black text-primary">₹ 1.85 Cr</p>
+<p class="text-[10px] text-slate-500 font-medium">₹ 16,000/sqft</p>
+</div>
+</div>
+<p class="text-sm text-slate-500 mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span> Chandivali, Mumbai
+                    </p>
+<div class="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-slate-100 dark:border-slate-800">
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Area</p>
+<p class="text-sm font-bold">1,150 sqft</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Possession</p>
+<p class="text-sm font-bold">Dec 2025</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Type</p>
+<p class="text-sm font-bold">2 BHK Flat</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium">Swimming Pool</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium">Clubhouse</span>
+<span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] px-2 py-1 rounded font-medium">Security</span>
+</div>
+</div>
+<div class="flex gap-3 mt-auto">
+<button class="flex-1 bg-primary hover:bg-orange-700 text-white py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2">
+                        Contact Owner
+                    </button>
+<button class="flex-1 border-2 border-primary text-primary hover:bg-primary/5 py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2">
+                        Express Interest
+                    </button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center gap-2 py-8">
+<button class="size-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="size-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="size-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-primary hover:text-white transition-colors">2</button>
+<button class="size-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-primary hover:text-white transition-colors">3</button>
+<span class="px-2">...</span>
+<button class="size-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-primary hover:text-white transition-colors">12</button>
+<button class="size-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-slate-900 py-16 border-t border-slate-200 dark:border-slate-800 mt-12">
+<div class="max-w-[1400px] mx-auto px-4">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<div class="bg-primary text-white p-1 rounded">
+<span class="material-symbols-outlined text-xl">domain</span>
+</div>
+<h1 class="text-xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">MagicBricks</h1>
+</div>
+<p class="text-sm text-slate-500 max-w-xs leading-relaxed">India's No 1 Property portal and has been adjudged as the most preferred real estate portal in the country.</p>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Quick Links</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Home Loans</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Propworth</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Rates &amp; Trends</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Legal Guide</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Commercial</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Office Spaces</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Shops</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Warehouse</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Showrooms</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Company</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms &amp; Conditions</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">public</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">alternate_email</span>
+</div>
+<p class="text-xs text-slate-400">© 2024 MagicBricks Realty Services Limited. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+</body></html>

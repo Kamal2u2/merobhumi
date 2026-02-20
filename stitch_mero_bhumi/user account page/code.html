@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Dashboard - Real Estate Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ed4b13",
+                        "accent-blue": "#2563eb",
+                        "accent-red": "#d8232a",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221510"
+                    },
+                    fontFamily: {
+                        display: ["Public Sans"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .tab-active {
+            @apply border-b-2 border-primary text-primary font-bold;
+        }
+        .sidebar-link-active {
+            @apply bg-primary/10 text-primary border-r-4 border-primary font-bold;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<header class="sticky-nav bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 px-4 lg:px-20 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="bg-accent-red text-white p-1 rounded">
+<span class="material-symbols-outlined text-2xl">domain</span>
+</div>
+<h1 class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">REALTOR</h1>
+</div>
+<nav class="hidden xl:flex items-center gap-6">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Buy</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Rent</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Sell</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Home Loans</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Tools</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex border-2 border-primary text-primary px-4 py-1.5 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-all">
+            Post Property <span class="ml-1 bg-yellow-400 text-[10px] px-1 rounded text-slate-900">FREE</span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<button class="flex items-center gap-2 text-sm font-bold text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="size-8 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCYdlmupySilaLmB5dgi2v6FVmQvU1VyBaPV2kZYpKrlxZ3bc85d13rnLZfVwoi2IQWgt3qop_kfkwfrKSDgE7VLZJ2JtZ5iO9MIccomhxb3P-PCUXJbrGj_gJJqNYjGgRPMqvTmbS1ma3RGQnhkEfy1IbzulSuOsog-qnXqbPoHkTQpgEXMnlAIGlRztg5pLSfrhkYNsIJdH73RP8Jt1_S_HG8bsKWG64wdpFph3E4MPqhvLm5yr2FrGPU29BiKUa4yvm9yT0oQ"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 py-8">
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 mb-8">
+<div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+<div class="flex flex-col md:flex-row items-center gap-6">
+<div class="relative">
+<div class="size-24 rounded-full bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-700 shadow-lg overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ1tY1DUqnznS87eZZLGfMAs8i-8CHJDugzxjHj_DJNTX7k8FhyYgTHUN0RTPxJNMcLP5NMGN7V0Fd_FSUIMzg8rYZdXLNUbyLZCqHl0PEaHKAwex6XqWYX872lI0mYhFIw0whUe3liiID4tdRTX2URp-FV_ZI3wl2BcrvWO4wl-4iCltiQ9-39ZkJlt7xnPfKxfWcnkO7QK3MPf897o64BJBKxdP7z7E_VAaqLhKv6oWhV4guh2mX9aCuL9dHpjF7BfY3FpPbBg"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-white p-1.5 rounded-full shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-xs">edit</span>
+</button>
+</div>
+<div class="text-center md:text-left">
+<h2 class="text-2xl font-black text-slate-900 dark:text-white">Alex Johnson</h2>
+<div class="flex flex-wrap justify-center md:justify-start gap-4 mt-2 text-sm text-slate-500">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">mail</span> alex.j@example.com
+                        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">call</span> +91 98765 43210
+                        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Mumbai, India
+                        </span>
+</div>
+<div class="mt-4 flex gap-2">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase">Silver Member</span>
+<span class="bg-green-100 dark:bg-green-900/30 text-green-600 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Profile Verified</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 w-full md:w-auto">
+<button class="bg-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm shadow-md hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">edit</span> Edit Profile
+                </button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">share</span> Share Profile
+                </button>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<aside class="lg:col-span-1">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden sticky top-24">
+<nav class="flex flex-col">
+<a class="sidebar-link-active p-4 flex items-center gap-3 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-sm">Personal Profile</span>
+</a>
+<a class="p-4 flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm">Account Settings</span>
+</a>
+<a class="p-4 flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">notifications_active</span>
+<span class="text-sm">Property Alerts</span>
+<span class="ml-auto bg-primary text-white text-[10px] px-1.5 py-0.5 rounded-full">3</span>
+</a>
+<a class="p-4 flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">rate_review</span>
+<span class="text-sm">My Reviews</span>
+</a>
+<a class="p-4 flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-sm">Favorites</span>
+</a>
+<div class="border-t border-slate-100 dark:border-slate-800 my-2"></div>
+<a class="p-4 flex items-center gap-3 text-accent-red hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-bold">Logout</span>
+</a>
+</nav>
+</div>
+<div class="mt-6 bg-accent-blue rounded-xl p-5 text-white">
+<h4 class="font-bold mb-2">Need a Home Loan?</h4>
+<p class="text-xs text-blue-100 mb-4">Get pre-approved in minutes with our banking partners.</p>
+<button class="bg-white text-accent-blue w-full py-2 rounded-lg font-bold text-xs">Apply Now</button>
+</div>
+</aside>
+<div class="lg:col-span-3">
+<div class="bg-white dark:bg-slate-900 rounded-t-xl border border-b-0 border-slate-200 dark:border-slate-800 overflow-x-auto hide-scrollbar">
+<div class="flex">
+<button class="px-6 py-4 text-sm font-semibold whitespace-nowrap text-slate-500 hover:text-primary border-b-2 border-transparent">My Activity</button>
+<button class="px-6 py-4 text-sm font-bold whitespace-nowrap tab-active">Saved Properties</button>
+<button class="px-6 py-4 text-sm font-semibold whitespace-nowrap text-slate-500 hover:text-primary border-b-2 border-transparent">Contacted Owners</button>
+<button class="px-6 py-4 text-sm font-semibold whitespace-nowrap text-slate-500 hover:text-primary border-b-2 border-transparent">Manage My Property</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-b-xl shadow-sm p-6">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h3 class="text-lg font-black text-slate-900 dark:text-white">Saved Properties (4)</h3>
+<p class="text-xs text-slate-500">Listings you've marked as favorites</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="group border border-slate-100 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-lg transition-all">
+<div class="relative h-44">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury flat interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf8Z5hBodqrCRtg3ePAbdd8jQ-NSbKaLnrjIBwYSBUraYmjEvx5YxNAPbZnMNOVOCFW1A_LxLSplSvBLWF6qBxOnfAf6SE0cRqSEfctfjsJdeFyvhq_gQMrA1t0-l4JtauIGe1ggG7IYXrK5j595IroH0Q3o8kbY56DwcmDnyr4RSA53cvcWZkPIZWVIq-U6aT0LdnBoMBFHbyC3heuDrUPClkrOe1C-heSuBzwV4fyxj2B9h4U2SNEuxMkGbWc2gMgYFy0-lZZw"/>
+<div class="absolute top-3 left-3 flex flex-col gap-2">
+<span class="bg-accent-red text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">trending_down</span> Price Dropped
+                                </span>
+</div>
+<button class="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full text-primary shadow-sm">
+<span class="material-symbols-outlined fill-1">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-slate-900 dark:text-white">3 BHK Luxury Apartment</h4>
+<p class="font-black text-primary">₹ 2.45 Cr</p>
+</div>
+<p class="text-xs text-slate-500 flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Powai, Mumbai
+                            </p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-50 dark:border-slate-800">
+<span class="text-[10px] text-slate-400">Added 5 days ago</span>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:underline">
+                                    View Details <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group border border-slate-100 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-lg transition-all">
+<div class="relative h-44">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern house exterior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArMtLSV-trv0iB1mE_o4m1UiBdRK_T6T0wdKVXhcwJyu2uglCRSGg2sfC7rDXLV9icUoOAW43tvN71zB3ydeicDH6EUiveWutWyzSdLkyJGi8krpQ2OQssPeFMAIjkp3BhplK_4hIQM0bMry_pE221u3RpuvjS3eDLK4ZEDmIqz5qY7ANblux4ThX7DGuKF8d25CCgQZIHZloKdK5R5Z2zMsMfdZg5Phbnv9ozdVaYNEhFVYKR8Rqap4bqCyKkHDM6TYkeNB1ImQ"/>
+<div class="absolute top-3 left-3">
+<span class="bg-accent-blue text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm">Ready to Move</span>
+</div>
+<button class="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full text-primary shadow-sm">
+<span class="material-symbols-outlined fill-1">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-slate-900 dark:text-white">4 BHK Independent Villa</h4>
+<p class="font-black text-primary">₹ 4.12 Cr</p>
+</div>
+<p class="text-xs text-slate-500 flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Whitefield, Bangalore
+                            </p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-50 dark:border-slate-800">
+<span class="text-[10px] text-slate-400">Added 12 days ago</span>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:underline">
+                                    View Details <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group border border-slate-100 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-lg transition-all">
+<div class="relative h-44">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="City view apartment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAK8WIYJhPNKx6TviE9gNIy8RUV7SzMYG-0XmNkh3nNlH2_TInFqBoraFEtB7MfjbKwOe5mrGVYoF_BqME76p51XMBDtJlm8Uw-YSOPJRs3uZP4-_tlyRmTOz057pZLZAy1EhEEe-_63-gPhgHweitLwTQPcv3vWFLmuRYc80Pr1dstE47HFfpp7kX9pWNByofXZyaes3Jlt-aabUYjMEjZqqnE5JMYR99bCAM_b2ZZzBCrGO7Gp4_sOF6aSkHNML_BlmOmNxiOA"/>
+<div class="absolute top-3 left-3">
+<span class="bg-slate-900/80 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm">New Launch</span>
+</div>
+<button class="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full text-primary shadow-sm">
+<span class="material-symbols-outlined fill-1">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-slate-900 dark:text-white">2 BHK Modern Suite</h4>
+<p class="font-black text-primary">₹ 85 Lac</p>
+</div>
+<p class="text-xs text-slate-500 flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Sector 62, Gurgaon
+                            </p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-50 dark:border-slate-800">
+<span class="text-[10px] text-green-600 font-bold">Offer Ends in 2 Days</span>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:underline">
+                                    View Details <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group border border-slate-100 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-lg transition-all">
+<div class="relative h-44">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern house architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKrkMiF_HplqN2DyIB5M8-EE3uKrkFwEnH0REXGZqedCkTz1kNKc59gZ62b2ONeRL91pBCYKKTgLi9p67NNIW8fbdaoACZrSGU7FjrsYownrtGiBMhoj36KVwvvDt0wYTGitWEpfG2Pd31CdXb9ivkWhiqyJBYb1RC1tYTAJ-nQS7OP03uUxRV4X-A4uZgcNv7RQJJtCqlS7LNdOGqsMldVm04gMuwPJBO3AEZFMF2vPv2fbLuJ5cAFdf7-0OHj1YTQldB0fRfiQ"/>
+<div class="absolute top-3 left-3 flex flex-col gap-2">
+<span class="bg-accent-red text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">trending_down</span> Price Dropped
+                                </span>
+</div>
+<button class="absolute top-3 right-3 bg-white/90 p-1.5 rounded-full text-primary shadow-sm">
+<span class="material-symbols-outlined fill-1">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-slate-900 dark:text-white">Residential Plot</h4>
+<p class="font-black text-primary">₹ 45 Lac</p>
+</div>
+<p class="text-xs text-slate-500 flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Sarjapur Road, Bangalore
+                            </p>
+<div class="flex items-center justify-between pt-3 border-t border-slate-50 dark:border-slate-800">
+<span class="text-[10px] text-slate-400">Added 1 month ago</span>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:underline">
+                                    View Details <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-center">
+<button class="text-primary font-bold text-sm border-2 border-primary/20 px-8 py-2 rounded-lg hover:bg-primary/5 transition-colors">Load More Properties</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-background-dark py-16 border-t border-slate-200 dark:border-slate-800 mt-20">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<div class="bg-accent-red text-white p-1 rounded">
+<span class="material-symbols-outlined text-xl">domain</span>
+</div>
+<h1 class="text-xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">REALTOR</h1>
+</div>
+<p class="text-sm text-slate-500 max-w-xs leading-relaxed">The country's most preferred real estate portal for searching, discovery and transactions.</p>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Buy</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Residential Plots</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Villas for Sale</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">1 BHK Flats</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">New Projects</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Resources</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Property Rates</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">EMI Calculator</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Legal Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Real Estate News</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Company</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">public</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">alternate_email</span>
+</div>
+<p class="text-xs text-slate-400">© 2024 Realtor Services Limited. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+</body></html>

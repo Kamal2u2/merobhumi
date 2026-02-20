@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Property Details | MagicBricks Clone</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ed4b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221510",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .sticky-sidebar {
+            position: sticky;
+            top: 80px;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<header class="sticky-nav bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 lg:px-20 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="bg-primary text-white p-1 rounded">
+<span class="material-symbols-outlined text-2xl">domain</span>
+</div>
+<h1 class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">MagicBricks</h1>
+</div>
+<nav class="hidden xl:flex items-center gap-6">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Buy</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Rent</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Sell</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Home Loans</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Help</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex border-2 border-primary text-primary px-4 py-1.5 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-all">
+            Post Property <span class="ml-1 bg-yellow-400 text-[10px] px-1 rounded text-slate-900 uppercase">Free</span>
+</button>
+<button class="flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined">account_circle</span>
+            Login
+        </button>
+</div>
+</header>
+<section class="max-w-7xl mx-auto px-4 py-6">
+<div class="grid grid-cols-12 gap-2 h-[450px] overflow-hidden rounded-xl">
+<div class="col-span-8 h-full relative group cursor-pointer">
+<img alt="Main Property Image" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnO9bPJdNIc-8yt4whpfiqR68v7RP02JHazinz-YeElb0onhwKibRsUEe6m81FU0wh3GE07cc0gOLS3B9gL1AIVaGGUq2txdlph1iePtvDJT5dsvMUQQ2rsiXLawaT4_-vWa065Pb4Is0vX_YOAblT-62q9vPPRbOTvBZrPJDsr57PcPdHnZ5A48B43ZHgBTZRrHU22-6QTGkQCNZ4C-J_wS0hZj24ZIoawy1zoQshLQaf4Q-AkIMEaUWiBXN-2Jyy8jZG5N5_9w"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all"></div>
+</div>
+<div class="col-span-4 grid grid-rows-2 gap-2 h-full">
+<div class="relative group cursor-pointer">
+<img alt="Property Image 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf8Z5hBodqrCRtg3ePAbdd8jQ-NSbKaLnrjIBwYSBUraYmjEvx5YxNAPbZnMNOVOCFW1A_LxLSplSvBLWF6qBxOnfAf6SE0cRqSEfctfjsJdeFyvhq_gQMrA1t0-l4JtauIGe1ggG7IYXrK5j595IroH0Q3o8kbY56DwcmDnyr4RSA53cvcWZkPIZWVIq-U6aT0LdnBoMBFHbyC3heuDrUPClkrOe1C-heSuBzwV4fyxj2B9h4U2SNEuxMkGbWc2gMgYFy0-lZZw"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all"></div>
+</div>
+<div class="relative group cursor-pointer">
+<img alt="Property Image 3" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArMtLSV-trv0iB1mE_o4m1UiBdRK_T6T0wdKVXhcwJyu2uglCRSGg2sfC7rDXLV9icUoOAW43tvN71zB3ydeicDH6EUiveWutWyzSdLkyJGi8krpQ2OQssPeFMAIjkp3BhplK_4hIQM0bMry_pE221u3RpuvjS3eDLK4ZEDmIqz5qY7ANblux4ThX7DGuKF8d25CCgQZIHZloKdK5R5Z2zMsMfdZg5Phbnv9ozdVaYNEhFVYKR8Rqap4bqCyKkHDM6TYkeNB1ImQ"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-all">
+<span class="text-white font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">grid_view</span>
+                        View All 15 Photos
+                    </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="max-w-7xl mx-auto px-4 mb-6">
+<nav class="flex text-xs text-slate-500 gap-2">
+<a class="hover:text-primary" href="#">Home</a>
+<span>/</span>
+<a class="hover:text-primary" href="#">Mumbai Real Estate</a>
+<span>/</span>
+<a class="hover:text-primary" href="#">Apartments in Powai</a>
+<span>/</span>
+<span class="text-slate-900 dark:text-slate-300 font-medium">Lodha Bellagio</span>
+</nav>
+</div>
+<main class="max-w-7xl mx-auto px-4 pb-20 grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-8">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-white mb-2">Lodha Bellagio</h2>
+<p class="text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span>
+                        Hiranandani Gardens, Powai, Mumbai, Maharashtra 400076
+                    </p>
+</div>
+<div class="flex gap-3">
+<button class="p-2 rounded-full border border-slate-200 hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="p-2 rounded-full border border-slate-200 hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-slate-100 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Price</p>
+<p class="text-2xl font-black text-primary">₹ 2.45 Cr</p>
+<p class="text-[10px] text-slate-400">@ ₹ 21,500 / sqft</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Config</p>
+<p class="text-lg font-bold">3 BHK Flat</p>
+<p class="text-[10px] text-slate-400">3 Baths, 2 Balconies</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Area</p>
+<p class="text-lg font-bold">1,140 sqft</p>
+<p class="text-[10px] text-slate-400">Carpet Area</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Status</p>
+<p class="text-lg font-bold">Under Construction</p>
+<p class="text-[10px] text-slate-400">Possession by Dec 2025</p>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 dark:bg-primary/10 p-6 rounded-xl border border-primary/20">
+<h3 class="text-lg font-black mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified</span>
+                Why buy this property?
+            </h3>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<li class="flex items-start gap-2 text-sm">
+<span class="material-symbols-outlined text-green-600 text-sm mt-0.5">check_circle</span>
+<span>Exclusive European-style architecture in the heart of Powai.</span>
+</li>
+<li class="flex items-start gap-2 text-sm">
+<span class="material-symbols-outlined text-green-600 text-sm mt-0.5">check_circle</span>
+<span>Excellent connectivity to Eastern Express Highway &amp; Metro Line 6.</span>
+</li>
+<li class="flex items-start gap-2 text-sm">
+<span class="material-symbols-outlined text-green-600 text-sm mt-0.5">check_circle</span>
+<span>Top-tier internal finishes including marble flooring and modular kitchen.</span>
+</li>
+<li class="flex items-start gap-2 text-sm">
+<span class="material-symbols-outlined text-green-600 text-sm mt-0.5">check_circle</span>
+<span>Walking distance to Hiranandani Foundation School &amp; Hospital.</span>
+</li>
+</ul>
+</div>
+<section>
+<h3 class="text-xl font-black mb-4">Description</h3>
+<div class="prose dark:prose-invert text-slate-600 dark:text-slate-400 leading-relaxed max-w-none">
+<p>Experience ultra-luxury living at Lodha Bellagio, Powai's most prestigious upcoming landmark. This 3 BHK apartment offers a perfect blend of modern architecture and functional design. Each unit is east-west oriented, ensuring ample natural light and cross-ventilation.</p>
+<p class="mt-4">The project features world-class amenities including a 25,000 sq.ft. clubhouse, infinity pool, and multiple sports courts. Located in one of Mumbai's most sought-after residential hubs, you are minutes away from premium dining, retail, and entertainment options.</p>
+<button class="text-primary font-bold text-sm mt-4 hover:underline">Read More...</button>
+</div>
+</section>
+<section>
+<h3 class="text-xl font-black mb-6">Amenities</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="flex flex-col items-center p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl text-primary mb-2">pool</span>
+<span class="text-xs font-bold">Swimming Pool</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl text-primary mb-2">fitness_center</span>
+<span class="text-xs font-bold">Gymnasium</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl text-primary mb-2">park</span>
+<span class="text-xs font-bold">Landscape Garden</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl text-primary mb-2">security</span>
+<span class="text-xs font-bold">24x7 Security</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl text-primary mb-2">sports_tennis</span>
+<span class="text-xs font-bold">Tennis Court</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl text-primary mb-2">stroller</span>
+<span class="text-xs font-bold">Kids Play Area</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl text-primary mb-2">local_parking</span>
+<span class="text-xs font-bold">Reserved Parking</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl text-primary mb-2">bolt</span>
+<span class="text-xs font-bold">Power Backup</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-slate-200 dark:border-slate-800 rounded-lg text-sm font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 transition-colors">Show all 25+ Amenities</button>
+</section>
+<section>
+<h3 class="text-xl font-black mb-6">Floor Plan</h3>
+<div class="bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center">
+<img alt="Floor Plan Thumbnail" class="max-w-md w-full rounded-lg mb-6 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAK8WIYJhPNKx6TviE9gNIy8RUV7SzMYG-0XmNkh3nNlH2_TInFqBoraFEtB7MfjbKwOe5mrGVYoF_BqME76p51XMBDtJlm8Uw-YSOPJRs3uZP4-_tlyRmTOz057pZLZAy1EhEEe-_63-gPhgHweitLwTQPcv3vWFLmuRYc80Pr1dstE47HFfpp7kX9pWNByofXZyaes3Jlt-aabUYjMEjZqqnE5JMYR99bCAM_b2ZZzBCrGO7Gp4_sOF6aSkHNML_BlmOmNxiOA"/>
+<div class="flex gap-4">
+<button class="bg-primary text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">visibility</span>
+                        View Full Floor Plan
+                    </button>
+<button class="border border-primary text-primary px-6 py-3 rounded-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                        Download PDF
+                    </button>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-xl font-black mb-6">Location &amp; Neighborhood</h3>
+<div class="space-y-6">
+<div class="h-80 w-full rounded-xl overflow-hidden bg-slate-200 relative grayscale">
+<div class="absolute inset-0 flex items-center justify-center bg-slate-100 dark:bg-slate-800">
+<div class="text-center">
+<span class="material-symbols-outlined text-5xl text-slate-300 mb-2">map</span>
+<p class="text-sm text-slate-500 font-medium">Interactive Map View</p>
+</div>
+</div>
+<div class="absolute top-4 left-4 bg-white dark:bg-slate-900 p-3 rounded-lg shadow-lg flex items-center gap-3">
+<div class="size-10 bg-primary/10 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">school</span>
+</div>
+<div>
+<p class="text-xs font-bold">Schools</p>
+<p class="text-[10px] text-slate-500">4 nearby</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 border border-slate-100 dark:border-slate-800 rounded-xl flex items-center gap-4">
+<div class="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded">
+<span class="material-symbols-outlined">directions_bus</span>
+</div>
+<div class="text-sm">
+<p class="font-bold">Gandhinagar Bus Stop</p>
+<p class="text-slate-500 text-xs">0.8 km | 5 mins</p>
+</div>
+</div>
+<div class="p-4 border border-slate-100 dark:border-slate-800 rounded-xl flex items-center gap-4">
+<div class="p-2 bg-green-100 dark:bg-green-900/30 text-green-600 rounded">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<div class="text-sm">
+<p class="font-bold">Galleria Shopping Mall</p>
+<p class="text-slate-500 text-xs">1.2 km | 8 mins</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<aside class="relative">
+<div class="sticky-sidebar space-y-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl">
+<h4 class="text-lg font-black mb-4">Contact Agent</h4>
+<div class="flex items-center gap-4 mb-6">
+<div class="size-12 rounded-full bg-slate-100 overflow-hidden">
+<img alt="Agent" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Jm4Auu7vYZ_GHx57eJ0_QWbCKE3yNyUf1b2ki6S7OcsgB70mobyK65xcPvBro7C1bIDSq-zbm83hFc2onMnuGSC8augjDxCEc3VnVE1oGu4ixGQwTfmASfuihnv0eDVsT-ZXEBRiMqCcsjv4nC1lQS1pRz8ei17xcgL87peDNxUyNjXQZqVUz4kx_olaROAE9qeFg6cd2NSIvNSIN1oY5ZI61XDjcCnHA17P4fdzxhTjsB3a3agKwY6E4TmIdRu-HZM1ut9toA"/>
+</div>
+<div>
+<p class="font-bold">Rohan Sharma</p>
+<p class="text-xs text-slate-500">Lodha Direct Sales Team</p>
+</div>
+</div>
+<form class="space-y-4">
+<div>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm py-3 px-4 focus:ring-primary focus:border-primary" placeholder="Name" type="text"/>
+</div>
+<div>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm py-3 px-4 focus:ring-primary focus:border-primary" placeholder="Email" type="email"/>
+</div>
+<div class="flex">
+<span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 text-sm">+91</span>
+<input class="w-full rounded-r-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm py-3 px-4 focus:ring-primary focus:border-primary" placeholder="Mobile Number" type="tel"/>
+</div>
+<label class="flex items-start gap-2 cursor-pointer">
+<input checked="" class="mt-1 rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-[10px] text-slate-500 leading-tight">I agree to be contacted by MagicBricks and the advertiser via Call/SMS/Email/WhatsApp.</span>
+</label>
+<button class="w-full bg-primary hover:bg-orange-600 text-white font-black py-4 rounded-lg shadow-lg shadow-primary/20 transition-all uppercase tracking-wider" type="submit">
+                        Contact Builder
+                    </button>
+<button class="w-full border-2 border-primary text-primary hover:bg-primary/5 font-black py-4 rounded-lg transition-all uppercase tracking-wider flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-xl">chat</span>
+                        Get More Details
+                    </button>
+</form>
+</div>
+<div class="bg-slate-900 text-white p-6 rounded-xl border border-slate-800">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-yellow-400">account_balance</span>
+<h4 class="font-bold">Home Loan Assistant</h4>
+</div>
+<p class="text-xs text-slate-400 mb-6">Get pre-approved home loans from top banks at competitive rates.</p>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm border-b border-slate-800 pb-2">
+<span class="text-slate-500">Interest Rate from</span>
+<span class="font-bold text-green-400">8.40%*</span>
+</div>
+<div class="flex justify-between items-center text-sm border-b border-slate-800 pb-2">
+<span class="text-slate-500">Max Tenure</span>
+<span class="font-bold">30 Years</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-primary font-bold text-xs uppercase hover:underline">Check Eligibility</button>
+</div>
+</div>
+</aside>
+</main>
+<section class="bg-white dark:bg-slate-900 py-16 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4">
+<h2 class="text-2xl font-black mb-8">Similar Properties in Powai</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="group border border-slate-100 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+<div class="h-48 overflow-hidden">
+<img alt="Similar property 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKrkMiF_HplqN2DyIB5M8-EE3uKrkFwEnH0REXGZqedCkTz1kNKc59gZ62b2ONeRL91pBCYKKTgLi9p67NNIW8fbdaoACZrSGU7FjrsYownrtGiBMhoj36KVwvvDt0wYTGitWEpfG2Pd31CdXb9ivkWhiqyJBYb1RC1tYTAJ-nQS7OP03uUxRV4X-A4uZgcNv7RQJJtCqlS7LNdOGqsMldVm04gMuwPJBO3AEZFMF2vPv2fbLuJ5cAFdf7-0OHj1YTQldB0fRfiQ"/>
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1">Hiranandani Regent Hill</h4>
+<p class="text-xs text-slate-500 mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Powai, Mumbai
+                    </p>
+<div class="flex justify-between items-center">
+<span class="text-lg font-black text-primary">₹ 1.85 Cr</span>
+<span class="text-xs font-semibold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">1 BHK</span>
+</div>
+</div>
+</div>
+<div class="group border border-slate-100 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+<div class="h-48 overflow-hidden">
+<img alt="Similar property 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAK8WIYJhPNKx6TviE9gNIy8RUV7SzMYG-0XmNkh3nNlH2_TInFqBoraFEtB7MfjbKwOe5mrGVYoF_BqME76p51XMBDtJlm8Uw-YSOPJRs3uZP4-_tlyRmTOz057pZLZAy1EhEEe-_63-gPhgHweitLwTQPcv3vWFLmuRYc80Pr1dstE47HFfpp7kX9pWNByofXZyaes3Jlt-aabUYjMEjZqqnE5JMYR99bCAM_b2ZZzBCrGO7Gp4_sOF6aSkHNML_BlmOmNxiOA"/>
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1">Kanakia Silicon Valley</h4>
+<p class="text-xs text-slate-500 mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Powai, Mumbai
+                    </p>
+<div class="flex justify-between items-center">
+<span class="text-lg font-black text-primary">₹ 3.10 Cr</span>
+<span class="text-xs font-semibold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">3 BHK</span>
+</div>
+</div>
+</div>
+<div class="group border border-slate-100 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+<div class="h-48 overflow-hidden">
+<img alt="Similar property 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyMvayNF7yPKkQYCZhSojDALX09-QBAgkbRRDBV4OrwIFRnUONP_W33gp3GII0G3g_Lez6FTOxfCsUGDrWxnINP_zwTL7owt2Cush0ZohoMEGb2zlTzQPYfrmv5-OBYN86-htMmsQD6Rm3Qy-TKgKyR2ibB1vRpB_5kAVfm3e6bLNM_QnPKyeR3gHuKJn2bXh5vbD8fAzHiSHbziSWIVHyLbQBUre9Vo3e5r2-bfOyMTUE2n5lHb3QZDttMkS0DL-rOllnUGxBPA"/>
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1">Godrej Urban Park</h4>
+<p class="text-xs text-slate-500 mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Chandivali, Mumbai
+                    </p>
+<div class="flex justify-between items-center">
+<span class="text-lg font-black text-primary">₹ 2.20 Cr</span>
+<span class="text-xs font-semibold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">2 BHK</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-white dark:bg-slate-900 py-16 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<div class="bg-primary text-white p-1 rounded">
+<span class="material-symbols-outlined text-xl">domain</span>
+</div>
+<h1 class="text-xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">MagicBricks</h1>
+</div>
+<p class="text-sm text-slate-500 max-w-xs leading-relaxed">MagicBricks is India's No 1 Property portal and has been adjudged as the most preferred real estate portal in the country.</p>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Quick Links</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Property Rates</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">EMI Calculator</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Legal Guide</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Support</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Feedback</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Download App</h4>
+<div class="flex flex-col gap-2">
+<div class="bg-slate-900 text-white px-3 py-1.5 rounded flex items-center gap-2 border border-slate-700 cursor-pointer">
+<span class="material-symbols-outlined text-xl">shop</span>
+<span class="text-[10px] font-bold">Google Play</span>
+</div>
+<div class="bg-slate-900 text-white px-3 py-1.5 rounded flex items-center gap-2 border border-slate-700 cursor-pointer">
+<span class="material-symbols-outlined text-xl">ios</span>
+<span class="text-[10px] font-bold">App Store</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+<p class="text-xs text-slate-400">© 2024 MagicBricks Realty Services Limited. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">public</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">alternate_email</span>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

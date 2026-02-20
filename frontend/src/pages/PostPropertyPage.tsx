@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Home, MapPin, Maximize, Upload,
     CheckCircle2, ChevronRight, ChevronLeft,
-    Smartphone, IndianRupee, Bed, Bath,
+    Smartphone, Banknote, Bed, Bath,
     Info, ShieldCheck, Zap
 } from 'lucide-react';
 import { toast } from 'sonner';
@@ -216,18 +216,18 @@ export default function PostPropertyPage() {
     };
 
     return (
-        <PageTransition className="min-h-screen bg-[#FAF8F4]">
+        <PageTransition className="min-h-screen bg-stitch-bg-light dark:bg-stitch-bg-dark font-stitch-display">
             <Navbar />
 
             <div className="pt-32 pb-20 px-4">
                 <div className="max-w-4xl mx-auto">
                     {/* Header */}
                     <div className="text-center mb-12">
-                        <h1 className="font-fraunces text-4xl md:text-5xl font-bold text-[#1C1B1A] mb-4">
+                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tight">
                             Sell or Rent Your Property
                         </h1>
-                        <p className="font-manrope text-[#5A5856] text-lg">
-                            Reach thousands of potential buyers in Nepal.
+                        <p className="text-slate-500 font-medium text-lg">
+                            Reach thousands of potential buyers across Nepal.
                         </p>
                     </div>
 
@@ -236,11 +236,11 @@ export default function PostPropertyPage() {
                         <div className="absolute top-1/2 left-0 w-full h-0.5 bg-[#E6D5C3] -translate-y-1/2 z-0" />
                         {steps.map((step) => (
                             <div key={step.id} className="relative z-10 flex flex-col items-center">
-                                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${currentStep >= step.id ? 'bg-[#D4755B] text-white' : 'bg-[#FAF8F4] border-2 border-[#E6D5C3] text-[#9CA3AF]'
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${currentStep >= step.id ? 'bg-stitch-primary text-white shadow-lg shadow-stitch-primary/30' : 'bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400'
                                     }`}>
                                     <step.icon size={20} />
                                 </div>
-                                <span className={`mt-2 text-xs font-bold uppercase tracking-wider ${currentStep >= step.id ? 'text-[#D4755B]' : 'text-[#9CA3AF]'
+                                <span className={`mt-2 text-[10px] font-black uppercase tracking-widest ${currentStep >= step.id ? 'text-stitch-primary' : 'text-slate-400'
                                     }`}>
                                     {step.title}
                                 </span>
@@ -264,7 +264,7 @@ export default function PostPropertyPage() {
                                                 {PROPERTY_TYPES.map(type => (
                                                     <button
                                                         key={type} onClick={() => setFormData({ ...formData, type })}
-                                                        className={`p-4 rounded-xl border-2 transition-all font-bold text-sm ${formData.type === type ? 'border-[#D4755B] bg-[#D4755B]/5 text-[#D4755B]' : 'border-[#E6D5C3] text-[#5A5856] hover:border-[#D4755B]/50'
+                                                        className={`p-4 rounded-xl border-2 transition-all font-black text-xs uppercase tracking-widest ${formData.type === type ? 'border-stitch-primary bg-stitch-primary/5 text-stitch-primary shadow-sm' : 'border-slate-200 dark:border-slate-700 text-slate-500 hover:border-stitch-primary/50'
                                                             }`}
                                                     >
                                                         {type}
@@ -278,7 +278,7 @@ export default function PostPropertyPage() {
                                                 {AVAILABILITY_TYPES.map(type => (
                                                     <button
                                                         key={type} onClick={() => setFormData({ ...formData, availability: type })}
-                                                        className={`p-4 rounded-xl border-2 transition-all font-bold text-sm capitalize ${formData.availability === type ? 'border-[#D4755B] bg-[#D4755B]/5 text-[#D4755B]' : 'border-[#E6D5C3] text-[#5A5856] hover:border-[#D4755B]/50'
+                                                        className={`p-4 rounded-xl border-2 transition-all font-black text-xs uppercase tracking-widest ${formData.availability === type ? 'border-stitch-primary bg-stitch-primary/5 text-stitch-primary shadow-sm' : 'border-slate-200 dark:border-slate-700 text-slate-500 hover:border-stitch-primary/50'
                                                             }`}
                                                     >
                                                         {type === 'sale' ? 'Sell' : type}
@@ -306,9 +306,9 @@ export default function PostPropertyPage() {
                                             />
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-sm font-bold text-[#1C1B1A]">Price (NPR)</label>
+                                            <label className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-widest">Price (NPR)</label>
                                             <div className="relative">
-                                                <IndianRupee className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9CA3AF]" size={18} />
+                                                <Banknote className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                                                 <input
                                                     name="price" value={formData.price} onChange={handleInputChange} type="number"
                                                     className="w-full p-4 pl-12 bg-[#FAF8F4] border border-[#E6D5C3] rounded-xl outline-none focus:border-[#D4755B]"
@@ -414,7 +414,7 @@ export default function PostPropertyPage() {
                                                         <ShieldCheck size={20} />
                                                     </div>
                                                 </div>
-                                                <div className="text-3xl font-black text-[#D4755B] mb-6">
+                                                <div className="text-3xl font-black text-stitch-primary mb-6">
                                                     Rs. {plan.price.toLocaleString()}
                                                     <span className="text-xs text-[#9CA3AF] font-medium ml-1">/ {plan.durationDays} days</span>
                                                 </div>
@@ -460,7 +460,7 @@ export default function PostPropertyPage() {
                             ) : (
                                 <button
                                     onClick={handleInitialSubmit} disabled={loading}
-                                    className="flex items-center gap-2 px-10 py-3 bg-[#D4755B] text-white rounded-xl font-bold hover:bg-[#C05E44] transition-all shadow-lg disabled:opacity-50"
+                                    className="flex items-center gap-2 px-10 py-3 bg-stitch-primary text-white rounded-xl font-black uppercase text-xs tracking-widest hover:bg-[#C05E44] transition-all shadow-lg shadow-stitch-primary/20 disabled:opacity-50"
                                 >
                                     {loading ? 'Submitting...' : 'Submit Property'}
                                     <CheckCircle2 size={20} />

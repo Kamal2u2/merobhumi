@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MagicBricks - Real Estate Search and Discovery Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#ed4b13", "accent-red": "#d8232a", "background-light": "#f8f6f6", "background-dark": "#221510"}, fontFamily: {display: "Public Sans"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Sticky Navigation Bar -->
+<header class="sticky-nav bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 px-4 lg:px-20 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="bg-accent-red text-white p-1 rounded">
+<span class="material-symbols-outlined text-2xl">domain</span>
+</div>
+<h1 class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">MagicBricks</h1>
+</div>
+<nav class="hidden xl:flex items-center gap-6">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Buy</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Rent</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Sell</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Home Loans</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Tools</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Help</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex border-2 border-primary text-primary px-4 py-1.5 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-all">
+                Post Property <span class="ml-1 bg-yellow-400 text-[10px] px-1 rounded text-slate-900">FREE</span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<button class="flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined">account_circle</span>
+                Login
+            </button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[450px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Modern luxury villa with pool at sunset" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnO9bPJdNIc-8yt4whpfiqR68v7RP02JHazinz-YeElb0onhwKibRsUEe6m81FU0wh3GE07cc0gOLS3B9gL1AIVaGGUq2txdlph1iePtvDJT5dsvMUQQ2rsiXLawaT4_-vWa065Pb4Is0vX_YOAblT-62q9vPPRbOTvBZrPJDsr57PcPdHnZ5A48B43ZHgBTZRrHU22-6QTGkQCNZ4C-J_wS0hZj24ZIoawy1zoQshLQaf4Q-AkIMEaUWiBXN-2Jyy8jZG5N5_9w');"></div>
+<div class="relative z-10 w-full max-w-4xl px-4 text-center">
+<h2 class="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight">Find a home you'll love</h2>
+<!-- Search Component -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-2xl p-2 md:p-4">
+<div class="flex flex-wrap gap-4 mb-4 border-b border-slate-100 dark:border-slate-800 px-2 pb-2">
+<button class="text-primary font-bold border-b-2 border-primary pb-2 px-2 text-sm uppercase tracking-wider">Buy</button>
+<button class="text-slate-500 font-bold pb-2 px-2 text-sm uppercase tracking-wider hover:text-primary transition-colors">Rent</button>
+<button class="text-slate-500 font-bold pb-2 px-2 text-sm uppercase tracking-wider hover:text-primary transition-colors">Commercial</button>
+<button class="text-slate-500 font-bold pb-2 px-2 text-sm uppercase tracking-wider hover:text-primary transition-colors">Plots</button>
+</div>
+<div class="flex flex-col md:flex-row items-stretch gap-2">
+<div class="flex-1 flex items-center bg-slate-50 dark:bg-slate-800 rounded-lg px-4 border border-slate-200 dark:border-slate-700 focus-within:ring-2 focus-within:ring-primary/20">
+<span class="material-symbols-outlined text-slate-400">location_on</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white py-4" placeholder="Enter City, Locality or Project" type="text"/>
+</div>
+<div class="flex items-center bg-slate-50 dark:bg-slate-800 rounded-lg px-4 border border-slate-200 dark:border-slate-700 min-w-[150px]">
+<span class="material-symbols-outlined text-slate-400">home</span>
+<select class="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white py-4 text-sm font-medium">
+<option>Flat</option>
+<option>House</option>
+<option>Villa</option>
+</select>
+</div>
+<div class="flex items-center bg-slate-50 dark:bg-slate-800 rounded-lg px-4 border border-slate-200 dark:border-slate-700 min-w-[150px]">
+<span class="material-symbols-outlined text-slate-400">payments</span>
+<select class="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white py-4 text-sm font-medium">
+<option>Budget</option>
+<option>Under 20L</option>
+<option>20L - 50L</option>
+<option>50L - 1Cr</option>
+</select>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">search</span>
+                        Search
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Quicklinks -->
+<div class="max-w-7xl mx-auto px-4 -mt-10 relative z-20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg text-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<h3 class="font-bold text-sm">Home Loans</h3>
+<p class="text-xs text-slate-500">Low interest rates</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg text-green-600">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<div>
+<h3 class="font-bold text-sm">Legal Services</h3>
+<p class="text-xs text-slate-500">Verified documents</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg text-purple-600">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<h3 class="font-bold text-sm">Property Valuation</h3>
+<p class="text-xs text-slate-500">Market price check</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer">
+<div class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg text-orange-600">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<h3 class="font-bold text-sm">Expert Advice</h3>
+<p class="text-xs text-slate-500">Consult experts</p>
+</div>
+</div>
+</div>
+</div>
+<main class="max-w-7xl mx-auto px-4 py-16 space-y-20">
+<!-- Popular Projects -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-2xl font-black text-slate-900 dark:text-white">Popular Projects</h2>
+<p class="text-slate-500 text-sm mt-1">Handpicked projects for you in Top Localities</p>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Project Card 1 -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 group">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Contemporary apartment building facade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf8Z5hBodqrCRtg3ePAbdd8jQ-NSbKaLnrjIBwYSBUraYmjEvx5YxNAPbZnMNOVOCFW1A_LxLSplSvBLWF6qBxOnfAf6SE0cRqSEfctfjsJdeFyvhq_gQMrA1t0-l4JtauIGe1ggG7IYXrK5j595IroH0Q3o8kbY56DwcmDnyr4RSA53cvcWZkPIZWVIq-U6aT0LdnBoMBFHbyC3heuDrUPClkrOe1C-heSuBzwV4fyxj2B9h4U2SNEuxMkGbWc2gMgYFy0-lZZw"/>
+<span class="absolute top-3 left-3 bg-accent-red text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">New Launch</span>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-1.5 py-0.5 rounded">RERA</span>
+<span class="text-xs font-semibold text-slate-400">Lodha Group</span>
+</div>
+<h3 class="font-bold text-lg mb-1 group-hover:text-primary transition-colors">Lodha Bellagio</h3>
+<p class="text-xs text-slate-500 mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Powai, Mumbai
+                        </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-400 font-medium">Starting from</p>
+<p class="text-lg font-black text-primary">₹ 2.45 Cr</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary">favorite</span>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 group">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern suburban housing complex" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArMtLSV-trv0iB1mE_o4m1UiBdRK_T6T0wdKVXhcwJyu2uglCRSGg2sfC7rDXLV9icUoOAW43tvN71zB3ydeicDH6EUiveWutWyzSdLkyJGi8krpQ2OQssPeFMAIjkp3BhplK_4hIQM0bMry_pE221u3RpuvjS3eDLK4ZEDmIqz5qY7ANblux4ThX7DGuKF8d25CCgQZIHZloKdK5R5Z2zMsMfdZg5Phbnv9ozdVaYNEhFVYKR8Rqap4bqCyKkHDM6TYkeNB1ImQ"/>
+<span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Ready to Move</span>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-1.5 py-0.5 rounded">RERA</span>
+<span class="text-xs font-semibold text-slate-400">Prestige Estates</span>
+</div>
+<h3 class="font-bold text-lg mb-1 group-hover:text-primary transition-colors">Prestige Waterford</h3>
+<p class="text-xs text-slate-500 mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Whitefield, Bangalore
+                        </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-400 font-medium">Starting from</p>
+<p class="text-lg font-black text-primary">₹ 1.12 Cr</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary">favorite</span>
+</div>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 group">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sleek glass high-rise towers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAK8WIYJhPNKx6TviE9gNIy8RUV7SzMYG-0XmNkh3nNlH2_TInFqBoraFEtB7MfjbKwOe5mrGVYoF_BqME76p51XMBDtJlm8Uw-YSOPJRs3uZP4-_tlyRmTOz057pZLZAy1EhEEe-_63-gPhgHweitLwTQPcv3vWFLmuRYc80Pr1dstE47HFfpp7kX9pWNByofXZyaes3Jlt-aabUYjMEjZqqnE5JMYR99bCAM_b2ZZzBCrGO7Gp4_sOF6aSkHNML_BlmOmNxiOA"/>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-1.5 py-0.5 rounded">RERA</span>
+<span class="text-xs font-semibold text-slate-400">DLF Limited</span>
+</div>
+<h3 class="font-bold text-lg mb-1 group-hover:text-primary transition-colors">DLF The Arbour</h3>
+<p class="text-xs text-slate-500 mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Sector 63, Gurgaon
+                        </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-400 font-medium">Starting from</p>
+<p class="text-lg font-black text-primary">₹ 7.50 Cr</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary">favorite</span>
+</div>
+</div>
+</div>
+<!-- Project Card 4 -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 group">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Spacious luxury residential home architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKrkMiF_HplqN2DyIB5M8-EE3uKrkFwEnH0REXGZqedCkTz1kNKc59gZ62b2ONeRL91pBCYKKTgLi9p67NNIW8fbdaoACZrSGU7FjrsYownrtGiBMhoj36KVwvvDt0wYTGitWEpfG2Pd31CdXb9ivkWhiqyJBYb1RC1tYTAJ-nQS7OP03uUxRV4X-A4uZgcNv7RQJJtCqlS7LNdOGqsMldVm04gMuwPJBO3AEZFMF2vPv2fbLuJ5cAFdf7-0OHj1YTQldB0fRfiQ"/>
+<span class="absolute top-3 left-3 bg-yellow-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Offer Available</span>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-1.5 py-0.5 rounded">RERA</span>
+<span class="text-xs font-semibold text-slate-400">Godrej Properties</span>
+</div>
+<h3 class="font-bold text-lg mb-1 group-hover:text-primary transition-colors">Godrej Eternity</h3>
+<p class="text-xs text-slate-500 mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Kanakapura, Bangalore
+                        </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-50 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-400 font-medium">Starting from</p>
+<p class="text-lg font-black text-primary">₹ 65 Lac</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary">favorite</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Owner Properties -->
+<section class="bg-blue-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 hidden lg:block">
+<svg class="w-full h-full" fill="white" viewbox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<path d="M100,0 L400,0 L400,400 L100,400 Q200,200 100,0 Z"></path>
+</svg>
+</div>
+<div class="relative z-10">
+<div class="max-w-xl">
+<h2 class="text-3xl font-black mb-4">Zero Brokerage Properties</h2>
+<p class="text-blue-100 mb-8 leading-relaxed">Connect directly with owners and save thousands on brokerage fees. We have over 50,000+ verified owner listings.</p>
+<button class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-50 transition-colors">Explore Owner Listings</button>
+</div>
+<div class="mt-12 flex flex-nowrap gap-6 overflow-x-auto pb-4 hide-scrollbar">
+<!-- Mini Property Card 1 -->
+<div class="flex-none w-64 bg-white rounded-xl p-4 text-slate-900 shadow-xl">
+<img class="w-full h-32 object-cover rounded-lg mb-3" data-alt="Cozy modern living room interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo9cUH2bJ6nZF3oN99Z3O_h8mlD3i6j35_GI5kaL5H61dr2tjY0y5H6ZWOQBE5YgG7W7VUG3BqCU4ZX3vQxYoNi_BL80miCg9PYvumChfGE7-gBkx7f_4jgwNHvvYjSKLL0OHLX4JBvjIbyeQmMo7ojnufsZxByO-WMike9hj22frcA4-WVVoY4ooNSGlrTFY7uwQ_1fJbxWO_xddnBlEa2ygUY0Gp81sbrhedfQDtec32s9k_S7WVAxDr135cwPZMidRJJSJThw"/>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-sm">2 BHK Apartment</h4>
+<p class="text-primary font-black text-sm">₹ 45,000</p>
+</div>
+<p class="text-[10px] text-slate-500 flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[12px]">location_on</span> Andheri West, Mumbai
+                        </p>
+<button class="w-full py-2 bg-slate-100 rounded-lg text-xs font-bold hover:bg-slate-200 transition-colors">Contact Owner</button>
+</div>
+<!-- Mini Property Card 2 -->
+<div class="flex-none w-64 bg-white rounded-xl p-4 text-slate-900 shadow-xl">
+<img class="w-full h-32 object-cover rounded-lg mb-3" data-alt="Bright modern bedroom with minimalist decor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ95ys_Q-7-9GTty6xsKbU-RgihhvB7wQgzwq0dn9MyFtwRoPsdtskspArqCSmlR7MwUn9DjP-cj6b2lMkNST8_S2xnQPYZt-MCSnzg8e6KlEZeo9Mp2kKpOHPSilnVTHFEyFJuu0rLrlwgyIa9oQCB_yrgf1BgsFbCJhaFLrMXCxk7zot-f7ib3M8gtii-52Y-VEMovL7LMEYF62S-Gn5d0_4BwvP4YVZDXRDF1z_FUxh7_lthWfWZDGW6F6dJ4x-PilZ7BalaA"/>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-sm">3 BHK House</h4>
+<p class="text-primary font-black text-sm">₹ 2.1 Cr</p>
+</div>
+<p class="text-[10px] text-slate-500 flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[12px]">location_on</span> Indira Nagar, Bangalore
+                        </p>
+<button class="w-full py-2 bg-slate-100 rounded-lg text-xs font-bold hover:bg-slate-200 transition-colors">Contact Owner</button>
+</div>
+<!-- Mini Property Card 3 -->
+<div class="flex-none w-64 bg-white rounded-xl p-4 text-slate-900 shadow-xl">
+<img class="w-full h-32 object-cover rounded-lg mb-3" data-alt="Minimalist modern apartment kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpU6wcC7vt8DAUbr9hy4CbcmXuRlIr9I_r35M2ykYUZwXlAzYNSbCwN3jVBqdU62-YVkHZTg0sSTLwsAKPNYm83hTtY2U6DBI0sgQKhRiuZCRuvDAlkbuVetkJ5CIGZj7SkxZhzCQqKTHC_az6OA2QtbtbnWptnZ_vjRvpjXPc66Fht0H2p_SxiUoBuSCU-nPa1Cb2H6IpAuYDJKG_VirJ_m4eqv1NLwMR40mZIjeROWCAQJGNEhp2lgnZDGYtr9Pugr6nvzeI2g"/>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-sm">Studio Flat</h4>
+<p class="text-primary font-black text-sm">₹ 25,000</p>
+</div>
+<p class="text-[10px] text-slate-500 flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[12px]">location_on</span> Sector 45, Noida
+                        </p>
+<button class="w-full py-2 bg-slate-100 rounded-lg text-xs font-bold hover:bg-slate-200 transition-colors">Contact Owner</button>
+</div>
+<!-- Mini Property Card 4 -->
+<div class="flex-none w-64 bg-white rounded-xl p-4 text-slate-900 shadow-xl">
+<img class="w-full h-32 object-cover rounded-lg mb-3" data-alt="Elegant luxury master bathroom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXugshQuMOFcFuiKGsrc9hZVakty1OqFGJDDSpYklQz41GRaFRaxOdECcI6BwG8Lbj1ImjAkCz7Ku3m6P-2FM5DhQdS4PH2sLkdQPS7ZYHRlm_Hf0brpdRUPKiNe_F5ig_q4D5vLBZgVcqBE4ZrJrDbjrSgYKnrGyk3p7Qu9I2O0ALHHKGzVdzDi9e2UGLourBQDqkvq5_wa2zSARR8Xd9yrtqJFImcqV7zaz0tefyH9ccVSXYEPkmn94SE27HMQkEMH7R0IXj7w"/>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-sm">1 BHK Flat</h4>
+<p class="text-primary font-black text-sm">₹ 32,000</p>
+</div>
+<p class="text-[10px] text-slate-500 flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[12px]">location_on</span> Gachibowli, Hyderabad
+                        </p>
+<button class="w-full py-2 bg-slate-100 rounded-lg text-xs font-bold hover:bg-slate-200 transition-colors">Contact Owner</button>
+</div>
+</div>
+</div>
+</section>
+<!-- New Launches & Trending Localities -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="lg:col-span-2">
+<h2 class="text-2xl font-black text-slate-900 dark:text-white mb-6">Fresh New Launches</h2>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow cursor-pointer">
+<img class="size-20 rounded-lg object-cover" data-alt="Close-up of high-rise apartment windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyMvayNF7yPKkQYCZhSojDALX09-QBAgkbRRDBV4OrwIFRnUONP_W33gp3GII0G3g_Lez6FTOxfCsUGDrWxnINP_zwTL7owt2Cush0ZohoMEGb2zlTzQPYfrmv5-OBYN86-htMmsQD6Rm3Qy-TKgKyR2ibB1vRpB_5kAVfm3e6bLNM_QnPKyeR3gHuKJn2bXh5vbD8fAzHiSHbziSWIVHyLbQBUre9Vo3e5r2-bfOyMTUE2n5lHb3QZDttMkS0DL-rOllnUGxBPA"/>
+<div class="flex-1">
+<h4 class="font-bold">Total Environment Down by the Water</h4>
+<p class="text-xs text-slate-500">Jakkur, Bangalore • 3, 4 BHK Villas</p>
+</div>
+<div class="text-right">
+<p class="font-black text-slate-900 dark:text-white">₹ 4.5 Cr*</p>
+<p class="text-[10px] text-accent-red font-bold uppercase">Limited Units Left</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow cursor-pointer">
+<img class="size-20 rounded-lg object-cover" data-alt="Modern glass corporate building facade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAes1h8h5h87Z9RVG35A__f-CM0a9-QxcxzJNLjkjLkj8ICQrr-jhovubYZZoMY8rpx8BVsleKBIHfYNh-XoUtgrs71daxjn0dW81PIUyiOISXX9npQThoGV5MjF2k5-H5VSyKnef-cx_5iXJgE8mG9VDgDbr85hHHzvd86YX2E1UXpSKue5zW_CwuN46Czt18QWP3lGAYYLtve9ap7ECdgQR3QQtBDrUKa55laRl-TKAs4ryUneVqCWU6jnhmGpgV1HgJnM-diXQ"/>
+<div class="flex-1">
+<h4 class="font-bold">M3M Crown</h4>
+<p class="text-xs text-slate-500">Sector 111, Gurgaon • 3, 4 BHK Luxury</p>
+</div>
+<div class="text-right">
+<p class="font-black text-slate-900 dark:text-white">₹ 2.8 Cr*</p>
+<p class="text-[10px] text-primary font-bold uppercase">Construction in Full Swing</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow cursor-pointer">
+<img class="size-20 rounded-lg object-cover" data-alt="Architecture detail of contemporary building" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Jm4Auu7vYZ_GHx57eJ0_QWbCKE3yNyUf1b2ki6S7OcsgB70mobyK65xcPvBro7C1bIDSq-zbm83hFc2onMnuGSC8augjDxCEc3VnVE1oGu4ixGQwTfmASfuihnv0eDVsT-ZXEBRiMqCcsjv4nC1lQS1pRz8ei17xcgL87peDNxUyNjXQZqVUz4kx_olaROAE9qeFg6cd2NSIvNSIN1oY5ZI61XDjcCnHA17P4fdzxhTjsB3a3agKwY6E4TmIdRu-HZM1ut9toA"/>
+<div class="flex-1">
+<h4 class="font-bold">Kalpataru Parkside</h4>
+<p class="text-xs text-slate-500">Kolshet Road, Thane • 2 BHK Flats</p>
+</div>
+<div class="text-right">
+<p class="font-black text-slate-900 dark:text-white">₹ 1.2 Cr*</p>
+<p class="text-[10px] text-slate-400 font-bold uppercase">Pre-Launch Price</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
+<h2 class="text-xl font-black text-slate-900 dark:text-white mb-6">Trending Localities</h2>
+<div class="space-y-6">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-bold">Whitefield, Bangalore</span>
+<span class="text-xs text-green-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> 4.2%
+                            </span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[85%]"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-bold">Gachibowli, Hyderabad</span>
+<span class="text-xs text-green-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> 6.8%
+                            </span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[92%]"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-bold">Thane West, Mumbai</span>
+<span class="text-xs text-green-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> 3.1%
+                            </span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[78%]"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-bold">Sector 62, Noida</span>
+<span class="text-xs text-green-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> 5.4%
+                            </span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[82%]"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full text-center text-primary font-bold text-sm">Download Market Report</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- App Promo -->
+<section class="bg-slate-900 py-16">
+<div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 text-center md:text-left">
+<h2 class="text-3xl font-black text-white mb-6">Property search on the go!</h2>
+<p class="text-slate-400 mb-8 text-lg">Get instant notifications on new properties matching your search criteria. Download the MagicBricks App now.</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4">
+<div class="bg-slate-800 px-6 py-3 rounded-xl flex items-center gap-3 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-3xl text-white">shop</span>
+<div class="text-left">
+<p class="text-[10px] text-slate-400 uppercase leading-none">Download on the</p>
+<p class="font-bold text-white text-lg leading-tight">Google Play</p>
+</div>
+</div>
+<div class="bg-slate-800 px-6 py-3 rounded-xl flex items-center gap-3 border border-slate-700 cursor-pointer hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-3xl text-white">ios</span>
+<div class="text-left">
+<p class="text-[10px] text-slate-400 uppercase leading-none">Download on the</p>
+<p class="font-bold text-white text-lg leading-tight">App Store</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 flex justify-center">
+<div class="relative w-64 h-[400px] bg-slate-800 rounded-[3rem] border-8 border-slate-700 shadow-2xl overflow-hidden">
+<div class="bg-primary h-full w-full p-4 flex flex-col">
+<div class="w-1/2 h-1 bg-white/30 rounded-full mx-auto mb-8"></div>
+<div class="bg-white rounded-lg p-2 mb-4">
+<div class="flex items-center gap-2 mb-2">
+<div class="size-6 bg-accent-red rounded-sm"></div>
+<div class="flex-1 h-2 bg-slate-100 rounded"></div>
+</div>
+<div class="h-20 bg-slate-50 rounded-lg"></div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="h-24 bg-white/20 rounded-lg"></div>
+<div class="h-24 bg-white/20 rounded-lg"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark py-16 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<div class="bg-accent-red text-white p-1 rounded">
+<span class="material-symbols-outlined text-xl">domain</span>
+</div>
+<h1 class="text-xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">MagicBricks</h1>
+</div>
+<p class="text-sm text-slate-500 max-w-xs leading-relaxed">MagicBricks is India's No 1 Property portal and has been adjudged as the most preferred real estate portal in the country.</p>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Buy</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Residential Plots</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Villas for Sale</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">1 BHK Flats</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">New Projects</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Resources</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Property Rates</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">EMI Calculator</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Legal Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Real Estate News</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-sm mb-6 uppercase">Company</h4>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">public</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">alternate_email</span>
+</div>
+<p class="text-xs text-slate-400">© 2024 MagicBricks Realty Services Limited. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>

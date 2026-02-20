@@ -16,7 +16,7 @@ const OtherWaysSection: React.FC = () => {
       title: 'WhatsApp Us',
       description: 'Chat directly with our support team via WhatsApp for instant assistance.',
       action: 'Start Chat',
-      actionLink: 'https://wa.me/919876543210',
+      actionLink: 'https://wa.me/9779801234567',
       bgColor: 'bg-[#E8F5E9]'
     },
     {
@@ -53,7 +53,7 @@ const OtherWaysSection: React.FC = () => {
         {/* Methods Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {methods.map((method, index) => (
-            <div 
+            <div
               key={index}
               className="bg-white border border-[#E6E0DA] rounded-2xl p-8 hover:shadow-xl transition-all group"
             >
@@ -75,7 +75,7 @@ const OtherWaysSection: React.FC = () => {
               </p>
 
               {/* Action Link */}
-              <a 
+              <a
                 href={method.actionLink}
                 target={method.actionLink.startsWith('http') ? '_blank' : '_self'}
                 rel={method.actionLink.startsWith('http') ? 'noopener noreferrer' : ''}

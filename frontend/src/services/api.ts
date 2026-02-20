@@ -64,6 +64,9 @@ export const userAPI = {
 
   getProfile: () =>
     apiClient.get('/users/me'),
+
+  updateProfile: (data: { name?: string; phone?: string; location?: string }) =>
+    apiClient.put('/users/update', data),
 };
 
 // Properties (CRUD — admin-managed listings)
@@ -154,6 +157,20 @@ export const plansAPI = {
 export const contactAPI = {
   submit: (data: { name: string; email: string; phone: string; message: string }) =>
     apiClient.post('/forms/submit', data),
+};
+
+// Inquiries (Lead Generation)
+export const inquiryAPI = {
+  create: (data: {
+    propertyId: string;
+    buyerName: string;
+    buyerEmail: string;
+    buyerPhone: string;
+    message?: string;
+  }) => apiClient.post('/inquiries', data),
+
+  getMyLeads: () => apiClient.get('/inquiries/my-leads'),
+  getMySentInquiries: () => apiClient.get('/inquiries/my-sent'),
 };
 
 export default apiClient;
