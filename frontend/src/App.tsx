@@ -19,6 +19,7 @@ const ForgotPasswordPage = lazy(() => import('./pages/ForgotPasswordPage'));
 const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage'));
 const PostPropertyPage = lazy(() => import('./pages/PostPropertyPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
+import MobileBottomNav from './components/common/MobileBottomNav';
 
 function NotFoundPage() {
   return (
@@ -73,6 +74,7 @@ export default function App() {
         <Suspense fallback={<PageLoader />}>
           <AnimatedRoutes />
         </Suspense>
+        <MobileBottomNav />
         <Toaster position="top-center" richColors />
       </AuthProvider>
     </BrowserRouter>

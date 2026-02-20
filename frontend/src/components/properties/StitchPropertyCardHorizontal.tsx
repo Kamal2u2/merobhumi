@@ -50,12 +50,12 @@ const StitchPropertyCardHorizontal: React.FC<StitchPropertyCardHorizontalProps> 
                 </button>
             </div>
 
-            <div className="p-4 md:p-6 flex-1 flex flex-col justify-between text-left">
+            <div className="p-3 md:p-6 flex-1 flex flex-col justify-between text-left">
                 <div>
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-4">
                         <div className="flex-1 min-w-0">
                             <Link to={`/property/${property._id}`}>
-                                <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white hover:text-stitch-primary cursor-pointer transition-colors line-clamp-2 md:truncate">
+                                <h3 className="text-base md:text-xl font-bold text-slate-900 dark:text-white hover:text-stitch-primary cursor-pointer transition-colors line-clamp-2 md:truncate">
                                     {property.title}
                                 </h3>
                             </Link>
@@ -65,12 +65,12 @@ const StitchPropertyCardHorizontal: React.FC<StitchPropertyCardHorizontalProps> 
                             </p>
                         </div>
                         <div className="sm:text-right shrink-0">
-                            <p className="text-xl md:text-2xl font-black text-stitch-primary whitespace-nowrap">{formatPrice(property.price)}</p>
+                            <p className="text-lg md:text-2xl font-black text-stitch-primary whitespace-nowrap">{formatPrice(property.price)}</p>
                             <p className="text-[10px] text-slate-500 font-medium tracking-tight">Price Negotiable</p>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-2 md:gap-4 mb-4 py-3 border-y border-slate-100 dark:border-slate-800">
+                    <div className="grid grid-cols-3 gap-2 md:gap-4 mb-3 py-2 md:py-3 border-y border-slate-100 dark:border-slate-800">
                         <div>
                             <p className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Area</p>
                             <p className="text-xs md:text-sm font-bold truncate">{property.sqft} sqft</p>
@@ -94,16 +94,16 @@ const StitchPropertyCardHorizontal: React.FC<StitchPropertyCardHorizontalProps> 
                     </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 mt-4">
+                <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mt-3 md:mt-4">
                     <button
                         onClick={() => setIsModalOpen(true)}
-                        className="flex-1 bg-stitch-primary hover:bg-[#d43f11] text-white py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 order-1 sm:order-none"
+                        className="flex-1 bg-[#1C1B1A] hover:bg-[#1C1B1A]/90 text-white py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 order-1 sm:order-none"
                     >
                         Contact Owner
                     </button>
                     <Link
                         to={`/property/${property._id}`}
-                        className="flex-1 border-2 border-stitch-primary text-stitch-primary hover:bg-stitch-primary/5 py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 text-center"
+                        className="flex-1 border-2 border-[#D8232A] text-[#D8232A] hover:bg-[#D8232A]/5 py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 text-center"
                     >
                         View Details
                     </Link>

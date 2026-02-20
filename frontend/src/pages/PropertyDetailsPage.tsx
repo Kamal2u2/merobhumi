@@ -123,9 +123,9 @@ const PropertyDetailsPage: React.FC = () => {
         />
       )}
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto px-4 py-4 md:py-8">
         {/* Breadcrumb */}
-        <nav className="relative z-10 flex flex-wrap text-[9px] md:text-xs text-slate-500 gap-y-2 gap-x-2 mb-6 md:mb-10 text-left uppercase font-black tracking-widest px-1">
+        <nav className="relative z-10 flex flex-wrap text-[9px] md:text-xs text-slate-500 gap-y-2 gap-x-2 mb-4 md:mb-10 text-left uppercase font-black tracking-widest px-1">
           <Link to="/" className="hover:text-stitch-primary transition-colors">Home</Link>
           <span className="opacity-30">/</span>
           <Link to="/properties" className="hover:text-stitch-primary transition-colors">Nepal Real Estate</Link>
@@ -138,7 +138,7 @@ const PropertyDetailsPage: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Main Info Columns */}
-          <div className="lg:col-span-2 space-y-12">
+          <div className="lg:col-span-2 space-y-8 md:space-y-12">
             <StitchPropertyMainInfo
               title={property.title}
               location={property.location}
@@ -156,8 +156,8 @@ const PropertyDetailsPage: React.FC = () => {
 
             {/* Floor Plan Section */}
             <section className="text-left">
-              <h3 className="text-2xl font-black mb-8 text-slate-900 dark:text-white uppercase tracking-tight">Floor Plan</h3>
-              <div className="bg-white dark:bg-slate-900 p-8 md:p-12 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center">
+              <h3 className="text-xl md:text-2xl font-black mb-4 md:mb-8 text-slate-900 dark:text-white uppercase tracking-tight">Floor Plan</h3>
+              <div className="bg-white dark:bg-slate-900 p-6 md:p-12 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col items-center">
                 <div className="relative group cursor-zoom-in mb-8">
                   <img
                     alt="Property Floor Plan"
@@ -171,10 +171,10 @@ const PropertyDetailsPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <button className="bg-stitch-primary text-white px-8 py-3.5 rounded-lg font-black uppercase text-xs tracking-widest shadow-lg shadow-stitch-primary/20 flex items-center gap-2">
+                  <button className="bg-[#D8232A] text-white px-8 py-3.5 rounded-lg font-black uppercase text-xs tracking-widest shadow-lg shadow-[#D8232A]/20 flex items-center gap-2">
                     <span className="material-symbols-outlined text-xl">visibility</span> View Full Plan
                   </button>
-                  <button className="border-2 border-stitch-primary text-stitch-primary hover:bg-stitch-primary/5 px-8 py-3.5 rounded-lg font-black uppercase text-xs tracking-widest flex items-center gap-2">
+                  <button className="border-2 border-[#D8232A] text-[#D8232A] hover:bg-[#D8232A]/5 px-8 py-3.5 rounded-lg font-black uppercase text-xs tracking-widest flex items-center gap-2">
                     <span className="material-symbols-outlined text-xl">download</span> Download PDF
                   </button>
                 </div>

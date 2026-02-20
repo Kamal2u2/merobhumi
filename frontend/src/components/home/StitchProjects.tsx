@@ -49,7 +49,7 @@ const StitchProjects: React.FC<StitchProjectsProps> = ({ properties: dynamicProp
     };
 
     return (
-        <section className="font-stitch-display py-16">
+        <section className="font-stitch-display py-6 md:py-10">
             <div className="flex items-center justify-between mb-8">
                 <div>
                     <h2 className="text-2xl font-black text-slate-900 dark:text-white">Popular Projects</h2>
@@ -60,7 +60,7 @@ const StitchProjects: React.FC<StitchProjectsProps> = ({ properties: dynamicProp
                 </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 {displayProperties.map((item: any, idx: number) => {
                     const id = item._id || item.id || `project-${idx}`;
                     const title = item.title;

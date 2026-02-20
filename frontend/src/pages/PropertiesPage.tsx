@@ -8,6 +8,7 @@ import LoadingState from '../components/common/LoadingState';
 import StitchFilterSidebar from '../components/properties/StitchFilterSidebar';
 import StitchPropertiesHeader from '../components/properties/StitchPropertiesHeader';
 import StitchPropertyCardHorizontal from '../components/properties/StitchPropertyCardHorizontal';
+import StitchPropertyCardVertical from '../components/properties/StitchPropertyCardVertical';
 import StitchFooter from '../components/home/StitchFooter';
 
 export interface Property {
@@ -82,7 +83,7 @@ const PropertiesPage: React.FC = () => {
 
       {/* Localized Stitch Search Bar */}
       <section className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm sticky top-[65px] z-40">
-        <div className="max-w-[1400px] mx-auto px-4 py-3 flex flex-col md:flex-row items-stretch md:items-center gap-3">
+        <div className="max-w-[1400px] mx-auto px-4 py-2 md:py-3 flex flex-col md:flex-row items-stretch md:items-center gap-2 md:gap-3">
           <div className="flex-1 flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg px-3 border border-slate-200 dark:border-slate-700">
             <span className="material-symbols-outlined text-slate-400 text-xl">search</span>
             <input
@@ -117,14 +118,14 @@ const PropertiesPage: React.FC = () => {
           </div>
           <button
             onClick={handleUpdateSearch}
-            className="bg-stitch-primary hover:bg-[#d43f11] text-white px-8 py-2.5 rounded-lg font-bold text-sm transition-all shadow-md active:scale-95 w-full md:w-auto"
+            className="bg-stitch-primary hover:bg-[#B91C1C] text-white px-8 py-2.5 rounded-lg font-bold text-sm transition-all shadow-md active:scale-95 w-full md:w-auto"
           >
             Update
           </button>
         </div>
       </section>
 
-      <main className="max-w-[1400px] mx-auto px-4 py-8 flex gap-8">
+      <main className="max-w-[1400px] mx-auto px-4 py-4 md:py-8 flex gap-8">
         {/* Left Sidebar - Filters */}
         <StitchFilterSidebar onFilterChange={(filters) => {
           console.log('Filters applied:', filters);
@@ -145,9 +146,16 @@ const PropertiesPage: React.FC = () => {
             <>
               <StitchPropertiesHeader totalResults={properties.length} />
 
-              <div className="space-y-6">
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 md:gap-6">
                 {properties.map((prop) => (
-                  <StitchPropertyCardHorizontal key={prop._id} property={prop} />
+                  <React.Fragment key={prop._id}>
+                    <div className="lg:hidden h-full">
+                      <StitchPropertyCardVertical property={prop} />
+                    </div>
+                    <div className="hidden lg:block">
+                      <StitchPropertyCardHorizontal property={prop} />
+                    </div>
+                  </React.Fragment>
                 ))}
 
                 {properties.length === 0 && (

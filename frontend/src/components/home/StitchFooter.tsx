@@ -3,15 +3,12 @@ import { Link } from 'react-router-dom';
 
 const StitchFooter: React.FC = () => {
     return (
-        <footer className="font-stitch-display bg-white dark:bg-background-dark py-16 border-t border-slate-200 dark:border-slate-800 mt-20">
+        <footer className="font-stitch-display bg-white dark:bg-background-dark py-16 border-t border-slate-200 dark:border-slate-800 mt-8 md:mt-12">
             <div className="max-w-7xl mx-auto px-4 text-left">
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
                     <div className="col-span-2">
                         <div className="flex items-center gap-2 mb-6">
-                            <div className="bg-stitch-accent-red text-white p-1 rounded">
-                                <span className="material-symbols-outlined text-xl">domain</span>
-                            </div>
-                            <h1 className="text-xl font-black tracking-tighter text-slate-900 dark:text-white uppercase !font-stitch-display !text-xl">Merobhumi</h1>
+                            <img src="/logo.svg" alt="Merobhumi" className="h-24 md:h-36 w-auto max-w-[350px] md:max-w-[500px] object-contain" />
                         </div>
                         <p className="text-sm text-slate-500 max-w-xs leading-relaxed">
                             Merobhumi is Nepal's No 1 Property portal and has been adjudged as the most preferred real estate portal in the country.

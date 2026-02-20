@@ -33,13 +33,13 @@ const StitchPropertyContactCard: React.FC<StitchPropertyContactCardProps> = ({ p
 
                     <button
                         onClick={onContact}
-                        className="w-full bg-stitch-primary hover:bg-[#d43f11] text-white font-black py-3.5 md:py-4 rounded-lg shadow-lg shadow-stitch-primary/30 transition-all uppercase tracking-widest text-xs md:text-sm mt-2"
+                        className="w-full bg-[#D8232A] hover:bg-[#B91C1C] text-white font-black py-3.5 md:py-4 rounded-lg shadow-lg shadow-[#D8232A]/30 transition-all uppercase tracking-widest text-xs md:text-sm mt-2"
                     >
                         Contact via Phone
                     </button>
                     <button
                         onClick={onContact}
-                        className="w-full border-2 border-stitch-primary text-stitch-primary hover:bg-stitch-primary/5 font-black py-3.5 md:py-4 rounded-lg transition-all uppercase tracking-widest text-xs md:text-sm flex items-center justify-center gap-2"
+                        className="w-full border-2 border-[#D8232A] text-[#D8232A] hover:bg-[#D8232A]/5 font-black py-3.5 md:py-4 rounded-lg transition-all uppercase tracking-widest text-xs md:text-sm flex items-center justify-center gap-2"
                     >
                         <span className="material-symbols-outlined text-lg md:text-xl">chat</span>
                         Chat on WhatsApp
@@ -65,7 +65,7 @@ const StitchPropertyContactCard: React.FC<StitchPropertyContactCardProps> = ({ p
                         <span className="font-black text-white text-base">20 Years</span>
                     </div>
                 </div>
-                <button className="w-full py-2.5 text-stitch-primary font-black text-[10px] uppercase tracking-widest hover:underline transition-all text-center">Check Eligibility</button>
+                <button className="w-full py-2.5 text-[#D8232A] font-black text-[10px] uppercase tracking-widest hover:underline transition-all text-center">Check Eligibility</button>
             </div>
         </div>
     );

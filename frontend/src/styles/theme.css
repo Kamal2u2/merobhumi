@@ -5,8 +5,8 @@
   /* Luxury Color Palette */
   --canvas-cream: #FAF8F4;
   --pearl-white: #FFFFFF;
-  --terracotta-clay: #D4755B;
-  --terracotta-primary: #EC4613;
+  --terracotta-clay: #B91C1C;
+  --terracotta-primary: #D8232A;
   /* Figma uses this brighter version */
   --charcoal-ink: #1C1B1A;
   --slate-gray: #5A5856;
@@ -15,10 +15,10 @@
   --warm-sand: #E6D5C3;
 
   /* Stitch Design Tokens (Exact Matches) */
-  --stitch-primary: #ed4b13;
-  --stitch-accent-red: #d8232a;
-  --stitch-bg-light: #f8f6f6;
-  --stitch-bg-dark: #221510;
+  --stitch-primary: #D8232A;
+  --stitch-accent-red: #B91C1C;
+  --stitch-bg-light: #F8F6F6;
+  --stitch-bg-dark: #121212;
   --stitch-font-display: 'Public Sans', sans-serif;
   --warm-bg-1: #F8F6F6;
   --warm-bg-2: #F9F7F2;

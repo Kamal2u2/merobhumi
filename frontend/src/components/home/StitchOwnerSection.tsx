@@ -31,10 +31,11 @@ const StitchOwnerSection: React.FC = () => {
         return `Rs. ${price.toLocaleString()}`;
     };
 
-    if (!loading && properties.length === 0) return null; // Hide if no real owner listings
+    // We removed the 'return null' check to ensure the section header and layout always show up
+    // as it provides a better UI than a disappearing section.
 
     return (
-        <section className="font-stitch-display bg-blue-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden my-16 shadow-2xl">
+        <section className="font-stitch-display bg-blue-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden my-6 md:my-10 shadow-2xl">
             <div className="absolute right-0 top-0 h-full w-1/3 opacity-20 hidden lg:block">
                 <svg className="w-full h-full" fill="white" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <path d="M100,0 L400,0 L400,400 L100,400 Q200,200 100,0 Z"></path>
@@ -61,7 +62,7 @@ const StitchOwnerSection: React.FC = () => {
                                 <div className="h-4 bg-white/20 rounded w-1/2"></div>
                             </div>
                         ))
-                    ) : (
+                    ) : properties.length > 0 ? (
                         properties.map((prop) => (
                             <div
                                 key={prop._id}
@@ -95,6 +96,12 @@ const StitchOwnerSection: React.FC = () => {
                                 </button>
                             </div>
                         ))
+                    ) : (
+                        <div className="flex-1 flex flex-col items-center justify-center bg-white/10 rounded-2xl p-8 border border-white/20">
+                            <span className="material-symbols-outlined text-4xl mb-2 opacity-50">house_siding</span>
+                            <p className="font-bold text-lg">Direct Owner Listings Coming Soon</p>
+                            <p className="text-blue-100 text-sm">We're verifying new owner properties daily.</p>
+                        </div>
                     )}
                 </div>
             </div>

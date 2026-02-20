@@ -44,11 +44,10 @@ const Navbar: React.FC = () => {
       style={{ backgroundColor: `rgba(255, 255, 255, ${bgOpacity.get()})`, backdropFilter: backdropBlur }}
       className="sticky top-0 z-50 border-b border-[#E6D5C3]"
     >
-      <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-20">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-8 flex items-center justify-between h-24 md:h-36">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3" onClick={closeMobileMenu}>
-          <img src="/logo.png" alt="Merobhumi" className="h-9 w-auto" />
-          <span className="font-fraunces text-2xl font-bold text-[#111827]">Merobhumi</span>
+        <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
+          <img src="/logo.svg" alt="Merobhumi" className="h-20 md:h-28 w-auto max-w-[300px] md:max-w-[450px] object-contain" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -58,8 +57,8 @@ const Navbar: React.FC = () => {
               key={link.path}
               to={link.path}
               className={`font-manrope transition-colors ${isActive(link.path)
-                ? 'text-[#D4755B] font-semibold'
-                : 'text-[#374151] hover:text-[#D4755B]'
+                ? 'text-[#D8232A] font-semibold'
+                : 'text-[#374151] hover:text-[#D8232A]'
                 }`}
             >
               {link.label}
@@ -71,10 +70,10 @@ const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center gap-4">
           <Link
             to="/post-property"
-            className="font-manrope font-bold text-[#D4755B] px-4 py-2 border border-[#D4755B] rounded-xl hover:bg-[#D4755B] hover:text-white transition-all flex items-center gap-2"
+            className="font-manrope font-bold text-[#D8232A] px-4 py-2 border border-[#D8232A] rounded-xl hover:bg-[#D8232A] hover:text-white transition-all flex items-center gap-2"
           >
             <span>Post Property</span>
-            <span className="bg-[#D4755B]/10 text-[10px] px-1.5 py-0.5 rounded uppercase hover:bg-white/20 transition-colors">Free</span>
+            <span className="bg-[#D8232A]/10 text-[10px] px-1.5 py-0.5 rounded uppercase hover:bg-white/20 transition-colors">Free</span>
           </Link>
           {isAuthenticated && user ? (
             <>
@@ -83,7 +82,7 @@ const Navbar: React.FC = () => {
               </Link>
               <button
                 onClick={handleLogout}
-                className="bg-[#D4755B] text-white font-manrope font-bold px-6 py-2 rounded-lg hover:bg-[#B86851] transition-all hover:shadow-lg"
+                className="bg-[#C5A059] text-[#1C1B1A] font-manrope font-bold px-6 py-2 rounded-lg hover:bg-[#B58E45] transition-all hover:shadow-lg"
               >
                 Logout
               </button>
@@ -98,7 +97,7 @@ const Navbar: React.FC = () => {
               </Link>
               <Link
                 to="/signup"
-                className="bg-[#D4755B] text-white font-manrope font-bold px-6 py-2 rounded-lg hover:bg-[#B86851] transition-all hover:shadow-lg"
+                className="bg-[#D8232A] text-white font-manrope font-bold px-6 py-2 rounded-lg hover:bg-[#B91C1C] transition-all hover:shadow-lg"
               >
                 Sign Up
               </Link>

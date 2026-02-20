@@ -126,9 +126,9 @@ const StitchFilterSidebar: React.FC<StitchFilterSidebarProps> = ({ onFilterChang
             </div>
 
             {/* Mobile App Banner (Stitch Style) */}
-            <div className="bg-stitch-primary/10 rounded-xl p-4 border border-stitch-primary/20 text-left">
-                <p className="text-sm font-bold text-stitch-primary mb-2">Want to sell faster?</p>
-                <button className="bg-stitch-primary text-white text-xs font-bold px-4 py-2 rounded-lg w-full hover:bg-opacity-90 transition-all">Post Property Free</button>
+            <div className="bg-[#D8232A]/10 rounded-xl p-4 border border-[#D8232A]/20 text-left">
+                <p className="text-sm font-bold text-[#D8232A] mb-2">Want to sell faster?</p>
+                <button className="bg-[#D8232A] text-white text-xs font-bold px-4 py-2 rounded-lg w-full hover:bg-opacity-90 transition-all shadow-sm">Post Property Free</button>
             </div>
         </aside>
     );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSEO } from '../hooks/useSEO';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { propertiesAPI } from '../services/api';
 import { Property } from './PropertiesPage';
 
@@ -13,6 +14,8 @@ import StitchHero from '../components/home/StitchHero';
 import StitchProjects from '../components/home/StitchProjects';
 import StitchOwnerSection from '../components/home/StitchOwnerSection';
 import StitchFeaturedListings from '../components/home/StitchFeaturedListings';
+import TestimonialsSection from '../components/home/TestimonialsSection';
+import StatsSection from '../components/home/StatsSection';
 import StitchFooter from '../components/home/StitchFooter';
 
 const HomePage: React.FC = () => {
@@ -50,13 +53,19 @@ const HomePage: React.FC = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <StitchHero />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <StitchHero />
+      </motion.div>
 
       {/* Main Content Container */}
-      <main className="max-w-7xl mx-auto px-4 py-16">
+      <main className="max-w-7xl mx-auto px-4 py-8 md:py-10">
 
         {/* Services / Quicklinks (Inline from Stitch) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 -mt-24 relative z-20 mb-20 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 -mt-10 md:-mt-24 relative z-20 mb-10 md:mb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
           {[
             { icon: 'account_balance', title: 'Home Loans', desc: 'Low interest rates', color: 'blue' },
             { icon: 'gavel', title: 'Legal Services', desc: 'Verified documents', color: 'green' },
@@ -66,7 +75,7 @@ const HomePage: React.FC = () => {
             <div
               key={idx}
               onClick={() => navigate('/contact')}
-              className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/20 dark:border-slate-800 flex items-center gap-4 hover:-translate-y-2 transition-all cursor-pointer group"
+              className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-4 md:p-6 rounded-xl md:rounded-2xl shadow-xl border border-white/20 dark:border-slate-800 flex items-center gap-4 hover:-translate-y-2 transition-all cursor-pointer group"
             >
               <div className={`p-3 rounded-xl text-${item.color}-600 bg-${item.color}-100 dark:bg-${item.color}-900/30 group-hover:scale-110 transition-transform`}>
                 <span className="material-symbols-outlined font-bold">{item.icon}</span>
@@ -80,19 +89,48 @@ const HomePage: React.FC = () => {
         </div>
 
         {/* Popular Projects */}
-        <StitchProjects properties={properties.slice(0, 4)} />
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <StitchProjects properties={properties.slice(0, 4)} />
+        </motion.section>
 
         {/* Zero Brokerage Section */}
-        <StitchOwnerSection />
+        <motion.section
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <StitchOwnerSection />
+        </motion.section>
 
         {/* Dynamic Featured Listings */}
-        <StitchFeaturedListings properties={properties} />
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
+          <StitchFeaturedListings properties={properties} />
+        </motion.section>
+
+        <StatsSection />
+        <TestimonialsSection />
 
         {/* Fresh Launches (Inline from Stitch) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 text-left mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 text-left mb-10 md:mb-12"
+        >
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-6 uppercase tracking-tight">Fresh New Launches</h2>
-            <div className="space-y-4">
+            <h2 className="text-lg md:text-2xl font-black text-slate-900 dark:text-white mb-4 md:mb-6 uppercase tracking-tight">Fresh New Launches</h2>
+            <div className="flex flex-nowrap md:flex-col gap-4 overflow-x-auto pb-4 md:pb-0 hide-scrollbar scroll-smooth">
               {(properties.length > 0 ? properties.slice(0, 3) : [
                 { _id: '1', title: 'Kathmandu Heights', location: 'Budhanilkantha', price: 45000000, type: 'Villa', beds: 4 },
                 { _id: '2', title: 'Patan Residency', location: 'Jhamsikhel', price: 28000000, type: 'Apartment', beds: 3 },
@@ -109,22 +147,22 @@ const HomePage: React.FC = () => {
                   <Link
                     key={id}
                     to={`/property/${id}`}
-                    className="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all group"
+                    className="flex-none w-[280px] md:w-full flex items-center gap-3 md:gap-4 bg-white dark:bg-slate-900 p-3 md:p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all group"
                   >
-                    <div className="size-20 bg-slate-50 dark:bg-slate-800 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
-                      <span className="material-symbols-outlined text-slate-400 text-3xl">
+                    <div className="size-14 md:size-20 bg-slate-50 dark:bg-slate-800 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                      <span className="material-symbols-outlined text-slate-400 text-2xl md:text-3xl">
                         {launch.type?.toLowerCase().includes('land') ? 'landscape' : 'apartment'}
                       </span>
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-extrabold text-slate-900 dark:text-white tracking-tight">{launch.title}</h4>
-                      <p className="text-xs text-slate-500 font-medium">{launch.location} • {launch.beds > 0 ? `${launch.beds} BHK` : ''} {launch.type}</p>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-extrabold text-slate-900 dark:text-white tracking-tight truncate text-sm md:text-base">{launch.title}</h4>
+                      <p className="text-[10px] md:text-xs text-slate-500 font-medium truncate">{launch.location} • {launch.beds > 0 ? `${launch.beds} BHK` : ''} {launch.type}</p>
                     </div>
-                    <div className="text-right">
-                      <p className="font-black text-stitch-primary text-lg">
+                    <div className="text-right shrink-0">
+                      <p className="font-black text-[#D8232A] text-base md:text-lg">
                         {typeof launch.price === 'number' ? formatPrice(launch.price) : launch.price}
                       </p>
-                      <p className="text-[10px] text-green-600 font-black uppercase tracking-widest">Trending</p>
+                      <p className="text-[8px] md:text-[10px] text-green-600 font-black uppercase tracking-widest">Trending</p>
                     </div>
                   </Link>
                 );
@@ -132,9 +170,9 @@ const HomePage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-xl">
-            <h2 className="text-xl font-black text-slate-900 dark:text-white mb-8 uppercase tracking-widest text-[14px]">Trending Localities</h2>
-            <div className="space-y-8">
+          <div className="bg-white dark:bg-slate-900 p-6 md:p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-xl self-start">
+            <h2 className="text-xs md:text-sm font-black text-slate-900 dark:text-white mb-6 md:mb-8 uppercase tracking-widest leading-loose">Trending Localities</h2>
+            <div className="space-y-6 md:space-y-8">
               {[
                 { name: 'Kathmandu, Baluwatar', change: '4.2%', width: '85%' },
                 { name: 'Lalitpur, Jhamsikhel', change: '6.8%', width: '92%' },
@@ -142,28 +180,28 @@ const HomePage: React.FC = () => {
                 { name: 'Chitwan, Bharatpur', change: '5.4%', width: '82%' },
               ].map((loc, idx) => (
                 <div key={idx} className="group cursor-default">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-black text-slate-800 dark:text-slate-200 uppercase tracking-tight">{loc.name}</span>
-                    <span className="text-[10px] text-green-600 font-black flex items-center gap-1 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded-full">
-                      <span className="material-symbols-outlined text-[12px] font-bold">trending_up</span> {loc.change}
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] md:text-sm font-black text-slate-800 dark:text-slate-200 uppercase tracking-tight">{loc.name}</span>
+                    <span className="text-[9px] md:text-[10px] text-green-600 font-black flex items-center gap-1 bg-green-50 dark:bg-green-900/20 px-1.5 py-0.5 rounded-full">
+                      <span className="material-symbols-outlined text-[10px] md:text-[12px] font-bold">trending_up</span> {loc.change}
                     </span>
                   </div>
-                  <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                    <div className="bg-stitch-primary h-full rounded-full group-hover:opacity-80 transition-opacity" style={{ width: loc.width }}></div>
+                  <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1 md:h-1.5 overflow-hidden">
+                    <div className="bg-[#D8232A] h-full rounded-full group-hover:opacity-80 transition-opacity" style={{ width: loc.width }}></div>
                   </div>
                 </div>
               ))}
-              <div className="pt-6 border-t border-slate-100 dark:border-slate-800">
+              <div className="pt-4 md:pt-6 border-t border-slate-100 dark:border-slate-800">
                 <button
                   onClick={() => navigate('/contact')}
-                  className="w-full text-center text-stitch-primary font-black text-[11px] uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
+                  className="w-full text-center text-[#D8232A] font-black text-[9px] md:text-[11px] uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
                 >
                   Download Market Report
                 </button>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </main>
 

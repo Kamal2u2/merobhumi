@@ -12,7 +12,7 @@ const StitchFeaturedListings: React.FC<StitchFeaturedListingsProps> = ({ propert
     if (!properties || properties.length === 0) return null;
 
     return (
-        <section className="py-16 font-stitch-display animate-in fade-in slide-in-from-bottom-6 duration-1000">
+        <section className="py-6 md:py-10 font-stitch-display animate-in fade-in slide-in-from-bottom-6 duration-1000">
             <div className="flex items-center justify-between mb-8">
                 <div>
                     <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-2">{title}</h2>
@@ -26,7 +26,7 @@ const StitchFeaturedListings: React.FC<StitchFeaturedListingsProps> = ({ propert
                 </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 {properties.slice(0, 8).map((property, idx) => (
                     <StitchPropertyCardVertical key={property._id || `featured-${idx}`} property={property} />
                 ))}
